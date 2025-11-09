@@ -30,93 +30,106 @@ export default function ApplicationUsage({ data }: Props) {
         Application Usage
       </h2>
 
-      <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Flame size={18} stroke="#f56565" />
-        Most Used Applications
-      </h3>
-      <div className="card-grid">
-        {data.mostUsedApplications.map((app, index) => (
-          <div key={app.applicationName} className="card" style={{ background: getGradientForIndex(index) }}>
-            <h3 className="card-title" style={{ fontSize: '1rem' }}>
-              {getMedalForIndex(index)} {app.applicationName}
-            </h3>
-            <p style={{ marginBottom: '6px', fontSize: '0.9rem' }}>
-              <strong>⏰ Total Active Time:</strong>{' '}
-              <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
-            </p>
-            <p style={{ fontSize: '0.9rem' }}>
-              <strong>🔢 Usage Count:</strong>{' '}
-              <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
-            </p>
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+        {/* Left Side - Most Used Applications */}
+        <div style={{ flex: '0 0 30%' }}>
+          <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Flame size={16} stroke="#f56565" />
+            Most Used Applications
+          </h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {data.mostUsedApplications.map((app, index) => (
+              <div key={app.applicationName} className="card" style={{ background: getGradientForIndex(index), padding: '10px' }}>
+                <h3 style={{ fontSize: '0.9rem', fontWeight: '700', marginBottom: '6px' }}>
+                  {getMedalForIndex(index)} {app.applicationName}
+                </h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                  <div>
+                    <strong>⏰ Active Time:</strong>{' '}
+                    <span style={{ fontSize: '0.9rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
+                  </div>
+                  <div>
+                    <strong>🔢 Count:</strong>{' '}
+                    <span style={{ fontSize: '0.9rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-      <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '1.2rem', fontWeight: '700' }}>
-        Application Breakdown by Agent
-      </h3>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Agent Name</th>
-              {data.applicationBreakdown.map((app) => (
-                <th key={app.applicationName}>
-                  {app.applicationName}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {(() => {
-              // Build a map of agents and their usage per application
-              const agentMap = new Map<string, { agentName: string; apps: Map<string, string> }>();
+        {/* Right Side - Application Breakdown Table */}
+        <div style={{ flex: '1' }}>
+          <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700' }}>
+            Application Breakdown by Agent
+          </h3>
+          <div className="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Agent Name</th>
+                  {data.applicationBreakdown.map((app) => (
+                    <th key={app.applicationName} style={{ padding: '8px 10px', fontSize: '0.7rem' }}>
+                      {app.applicationName}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {(() => {
+                  // Build a map of agents and their usage per application
+                  const agentMap = new Map<string, { agentName: string; apps: Map<string, string> }>();
 
-              data.applicationBreakdown.forEach((app) => {
-                app.usageByAgent.forEach((agent) => {
-                  if (!agentMap.has(agent.agentId)) {
-                    agentMap.set(agent.agentId, {
-                      agentName: agent.agentName,
-                      apps: new Map()
+                  data.applicationBreakdown.forEach((app) => {
+                    app.usageByAgent.forEach((agent) => {
+                      if (!agentMap.has(agent.agentId)) {
+                        agentMap.set(agent.agentId, {
+                          agentName: agent.agentName,
+                          apps: new Map()
+                        });
+                      }
+                      agentMap.get(agent.agentId)!.apps.set(app.applicationName, agent.activeTime);
                     });
-                  }
-                  agentMap.get(agent.agentId)!.apps.set(app.applicationName, agent.activeTime);
-                });
-              });
+                  });
 
-              return Array.from(agentMap.values()).map((agent) => (
-                <tr key={agent.agentName}>
-                  <td style={{ fontWeight: '700', background: '#e6f2ff', color: '#2c5282' }}>{agent.agentName}</td>
+                  return Array.from(agentMap.values()).map((agent) => (
+                    <tr key={agent.agentName}>
+                      <td style={{ padding: '8px 10px', fontWeight: '700', background: '#e6f2ff', color: '#2c5282', fontSize: '0.85rem' }}>{agent.agentName}</td>
+                      {data.applicationBreakdown.map((app) => (
+                        <td key={app.applicationName} style={{
+                          padding: '8px 10px',
+                          textAlign: 'left',
+                          color: agent.apps.has(app.applicationName) ? '#2d3748' : '#cbd5e0',
+                          fontSize: '0.85rem'
+                        }}>
+                          {agent.apps.get(app.applicationName) || '-'}
+                        </td>
+                      ))}
+                    </tr>
+                  ));
+                })()}
+                <tr style={{
+                  borderTop: '2px solid #4a5568',
+                  background: '#f7fafc',
+                  fontWeight: '700'
+                }}>
+                  <td style={{ padding: '8px 10px', fontWeight: '700', fontSize: '0.85rem' }}>Total</td>
                   {data.applicationBreakdown.map((app) => (
                     <td key={app.applicationName} style={{
+                      padding: '8px 10px',
                       textAlign: 'left',
-                      color: agent.apps.has(app.applicationName) ? '#2d3748' : '#cbd5e0'
+                      fontWeight: '700',
+                      fontSize: '0.85rem',
+                      color: '#2d3748'
                     }}>
-                      {agent.apps.get(app.applicationName) || '-'}
+                      {app.totalActiveTime}
                     </td>
                   ))}
                 </tr>
-              ));
-            })()}
-            <tr style={{
-              borderTop: '2px solid #4a5568',
-              background: '#f7fafc',
-              fontWeight: '700'
-            }}>
-              <td style={{ fontWeight: '700', fontSize: '0.95rem' }}>Total</td>
-              {data.applicationBreakdown.map((app) => (
-                <td key={app.applicationName} style={{
-                  textAlign: 'left',
-                  fontWeight: '700',
-                  fontSize: '0.95rem',
-                  color: '#2d3748'
-                }}>
-                  {app.totalActiveTime}
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   );
