@@ -26,33 +26,33 @@ export default function ApplicationUsage({ data }: Props) {
   return (
     <section className="section">
       <h2 className="section-title">
-        <Monitor size={32} />
+        <Monitor size={24} />
         Application Usage
       </h2>
 
-      <h3 style={{ marginBottom: '20px', fontSize: '1.75rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <Flame size={24} stroke="#f56565" />
+      <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <Flame size={18} stroke="#f56565" />
         Most Used Applications
       </h3>
       <div className="card-grid">
         {data.mostUsedApplications.map((app, index) => (
           <div key={app.applicationName} className="card" style={{ background: getGradientForIndex(index) }}>
-            <h3 className="card-title" style={{ fontSize: '1.4rem' }}>
+            <h3 className="card-title" style={{ fontSize: '1rem' }}>
               {getMedalForIndex(index)} {app.applicationName}
             </h3>
-            <p style={{ marginBottom: '10px' }}>
+            <p style={{ marginBottom: '6px', fontSize: '0.9rem' }}>
               <strong>⏰ Total Active Time:</strong>{' '}
-              <span style={{ fontSize: '1.5rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
+              <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
             </p>
-            <p>
+            <p style={{ fontSize: '0.9rem' }}>
               <strong>🔢 Usage Count:</strong>{' '}
-              <span style={{ fontSize: '1.5rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
+              <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
             </p>
           </div>
         ))}
       </div>
 
-      <h3 style={{ marginTop: '40px', marginBottom: '20px', fontSize: '1.75rem', fontWeight: '700' }}>
+      <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '1.2rem', fontWeight: '700' }}>
         Application Breakdown by Agent
       </h3>
       <div className="table-container">
@@ -103,12 +103,12 @@ export default function ApplicationUsage({ data }: Props) {
               background: '#f7fafc',
               fontWeight: '700'
             }}>
-              <td style={{ fontWeight: '700', fontSize: '1.05rem' }}>Total</td>
+              <td style={{ fontWeight: '700', fontSize: '0.95rem' }}>Total</td>
               {data.applicationBreakdown.map((app) => (
                 <td key={app.applicationName} style={{
                   textAlign: 'left',
                   fontWeight: '700',
-                  fontSize: '1.05rem',
+                  fontSize: '0.95rem',
                   color: '#2d3748'
                 }}>
                   {app.totalActiveTime}

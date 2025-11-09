@@ -24,107 +24,105 @@ export default function Synthesis({ data, fullData }: Props) {
   return (
     <section className="section">
       <h2 className="section-title">
-        <Target size={32} />
+        <Target size={24} />
         Synthesis & Strategic Insights
       </h2>
 
       {/* BEST PRACTICES - Now shown first with improved design */}
       <div style={{
         background: 'linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%)',
-        padding: '30px',
-        borderRadius: '16px',
-        marginBottom: '40px',
+        padding: '12px',
+        borderRadius: '10px',
+        marginBottom: '15px',
         border: '2px solid #48bb78',
-        boxShadow: '0 4px 20px rgba(72, 187, 120, 0.15)'
+        boxShadow: '0 2px 10px rgba(72, 187, 120, 0.15)'
       }}>
         <h3 style={{
           color: '#22543d',
-          marginBottom: '24px',
-          fontSize: '2rem',
+          marginBottom: '10px',
+          fontSize: '1.2rem',
           fontWeight: '800',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '8px',
           textTransform: 'uppercase',
-          letterSpacing: '0.5px'
+          letterSpacing: '0.3px'
         }}>
-          <CheckCircle size={28} />
+          <CheckCircle size={20} />
           Best Practices
         </h3>
         <div className="card-grid">
           {data.bestPractices.map((practice, index) => (
             <div key={index} style={{
               background: 'white',
-              borderRadius: '12px',
-              padding: '24px',
-              boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
-              border: '1px solid #c6f6d5',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-              cursor: 'default'
+              borderRadius: '8px',
+              padding: '12px',
+              boxShadow: '0 1px 6px rgba(0, 0, 0, 0.08)',
+              border: '1px solid #c6f6d5'
             }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <div style={{
                   background: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
-                  borderRadius: '10px',
-                  padding: '10px',
+                  borderRadius: '6px',
+                  padding: '6px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minWidth: '40px',
-                  height: '40px'
+                  minWidth: '28px',
+                  height: '28px'
                 }}>
-                  <CheckCircle size={24} stroke="white" strokeWidth={2.5} />
+                  <CheckCircle size={16} stroke="white" strokeWidth={2.5} />
                 </div>
                 <div style={{ flex: 1 }}>
                   <h4 style={{
-                    fontSize: '1.1rem',
+                    fontSize: '0.9rem',
                     color: '#1a202c',
-                    marginBottom: '14px',
+                    marginBottom: '8px',
                     fontWeight: '700'
                   }}>
                     Practice #{index + 1}
                   </h4>
                   <p style={{
-                    padding: '16px',
+                    padding: '8px',
                     background: 'linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%)',
-                    borderRadius: '10px',
+                    borderRadius: '6px',
                     fontWeight: '600',
                     color: '#22543d',
-                    marginBottom: '16px',
-                    lineHeight: '1.6',
-                    fontSize: '1.05rem'
+                    marginBottom: '8px',
+                    lineHeight: '1.4',
+                    fontSize: '0.85rem'
                   }}>
                     {practice.practice}
                   </p>
                   <div style={{
-                    padding: '14px',
+                    padding: '8px',
                     background: '#f7fafc',
-                    borderRadius: '8px',
-                    marginBottom: '14px',
-                    borderLeft: '3px solid #48bb78'
+                    borderRadius: '6px',
+                    marginBottom: '8px',
+                    borderLeft: '2px solid #48bb78'
                   }}>
-                    <strong style={{ color: '#2d3748', fontSize: '0.95rem' }}>👥 Agents Exhibiting:</strong>
+                    <strong style={{ color: '#2d3748', fontSize: '0.8rem' }}>👥 Agents:</strong>
                     <div style={{
-                      fontSize: '0.95rem',
+                      fontSize: '0.8rem',
                       color: '#4a5568',
-                      marginTop: '6px',
+                      marginTop: '4px',
                       fontWeight: '500'
                     }}>
                       {getAgentNames(practice.agentsExhibiting)}
                     </div>
                   </div>
                   <div style={{
-                    padding: '14px',
+                    padding: '8px',
                     background: '#f0fff4',
-                    borderRadius: '8px',
-                    borderLeft: '3px solid #38a169'
+                    borderRadius: '6px',
+                    borderLeft: '2px solid #38a169'
                   }}>
-                    <strong style={{ color: '#22543d', fontSize: '0.95rem' }}>💡 Recommendation:</strong>
+                    <strong style={{ color: '#22543d', fontSize: '0.8rem' }}>💡 Recommendation:</strong>
                     <div style={{
-                      marginTop: '6px',
+                      marginTop: '4px',
                       color: '#2d3748',
-                      lineHeight: '1.6',
-                      fontSize: '0.95rem'
+                      lineHeight: '1.4',
+                      fontSize: '0.8rem'
                     }}>
                       {practice.recommendation}
                     </div>
@@ -139,68 +137,67 @@ export default function Synthesis({ data, fullData }: Props) {
       {/* STRATEGIC INSIGHTS */}
       <div style={{
         background: 'linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%)',
-        padding: '30px',
-        borderRadius: '16px',
-        marginBottom: '40px',
+        padding: '12px',
+        borderRadius: '10px',
+        marginBottom: '15px',
         border: '2px solid #4299e1',
-        boxShadow: '0 4px 20px rgba(66, 153, 225, 0.15)'
+        boxShadow: '0 2px 10px rgba(66, 153, 225, 0.15)'
       }}>
         <h3 style={{
           color: '#2c5282',
-          marginBottom: '24px',
-          fontSize: '2rem',
+          marginBottom: '10px',
+          fontSize: '1.2rem',
           fontWeight: '800',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '8px',
           textTransform: 'uppercase',
-          letterSpacing: '0.5px'
+          letterSpacing: '0.3px'
         }}>
-          <Lightbulb size={28} />
+          <Lightbulb size={20} />
           Strategic Insights
         </h3>
         <div className="card-grid">
           {data.strategicInsights.map((insight) => (
             <div key={insight.insightId} style={{
               background: 'white',
-              borderRadius: '12px',
-              padding: '24px',
-              boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
-              border: '1px solid #bee3f8',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+              borderRadius: '8px',
+              padding: '12px',
+              boxShadow: '0 1px 6px rgba(0, 0, 0, 0.08)',
+              border: '1px solid #bee3f8'
             }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <div style={{
                   background: 'linear-gradient(135deg, #4299e1 0%, #3182ce 100%)',
-                  borderRadius: '10px',
-                  padding: '10px',
+                  borderRadius: '6px',
+                  padding: '6px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minWidth: '40px',
-                  height: '40px'
+                  minWidth: '28px',
+                  height: '28px'
                 }}>
-                  <Lightbulb size={24} stroke="white" strokeWidth={2.5} />
+                  <Lightbulb size={16} stroke="white" strokeWidth={2.5} />
                 </div>
                 <div style={{ flex: 1 }}>
                   <h4 style={{
                     color: '#2c5282',
-                    fontSize: '1.1rem',
-                    marginBottom: '14px',
+                    fontSize: '0.9rem',
+                    marginBottom: '8px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
+                    letterSpacing: '0.3px'
                   }}>
                     {insight.insightId}
                   </h4>
                   <p style={{
-                    padding: '16px',
+                    padding: '8px',
                     background: 'linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%)',
-                    borderRadius: '10px',
-                    lineHeight: '1.7',
+                    borderRadius: '6px',
+                    lineHeight: '1.4',
                     color: '#2c5282',
                     fontWeight: '600',
-                    fontSize: '1.05rem'
+                    fontSize: '0.85rem'
                   }}>
                     {insight.description}
                   </p>
@@ -214,83 +211,83 @@ export default function Synthesis({ data, fullData }: Props) {
       {/* IDLE TIME HOTSPOTS */}
       <div style={{
         background: 'linear-gradient(135deg, #fffaf0 0%, #feebc8 100%)',
-        padding: '30px',
-        borderRadius: '16px',
-        marginBottom: '40px',
+        padding: '12px',
+        borderRadius: '10px',
+        marginBottom: '15px',
         border: '2px solid #ed8936',
-        boxShadow: '0 4px 20px rgba(237, 137, 54, 0.15)'
+        boxShadow: '0 2px 10px rgba(237, 137, 54, 0.15)'
       }}>
         <h3 style={{
           color: '#7c2d12',
-          marginBottom: '24px',
-          fontSize: '2rem',
+          marginBottom: '10px',
+          fontSize: '1.2rem',
           fontWeight: '800',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '8px',
           textTransform: 'uppercase',
-          letterSpacing: '0.5px'
+          letterSpacing: '0.3px'
         }}>
-          <PauseCircle size={28} />
+          <PauseCircle size={20} />
           Idle Time Hotspots
         </h3>
         {data.idleTimeHotspots.map((hotspot, index) => (
           <div key={index} style={{
             background: 'white',
-            borderRadius: '12px',
-            padding: '24px',
-            boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+            borderRadius: '8px',
+            padding: '12px',
+            boxShadow: '0 1px 6px rgba(0, 0, 0, 0.08)',
             border: '1px solid #fbd38d',
-            marginBottom: index < data.idleTimeHotspots.length - 1 ? '20px' : '0'
+            marginBottom: index < data.idleTimeHotspots.length - 1 ? '10px' : '0'
           }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
               <div style={{
                 background: 'linear-gradient(135deg, #ed8936 0%, #dd6b20 100%)',
-                borderRadius: '10px',
-                padding: '10px',
+                borderRadius: '6px',
+                padding: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minWidth: '40px',
-                height: '40px'
+                minWidth: '28px',
+                height: '28px'
               }}>
-                <PauseCircle size={24} stroke="white" strokeWidth={2.5} />
+                <PauseCircle size={16} stroke="white" strokeWidth={2.5} />
               </div>
               <div style={{ flex: 1 }}>
                 <h4 style={{
                   color: '#7c2d12',
-                  fontSize: '1.3rem',
-                  marginBottom: '16px',
+                  fontSize: '1rem',
+                  marginBottom: '8px',
                   fontWeight: '700'
                 }}>
                   {hotspot.task}
                 </h4>
                 <div style={{
                   background: 'linear-gradient(135deg, #feebc8 0%, #fbd38d 100%)',
-                  padding: '20px',
-                  borderRadius: '10px',
-                  marginBottom: '16px',
+                  padding: '10px',
+                  borderRadius: '6px',
+                  marginBottom: '8px',
                   textAlign: 'center'
                 }}>
-                  <div style={{ fontSize: '0.9rem', color: '#7c2d12', fontWeight: '600', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#7c2d12', fontWeight: '600', marginBottom: '4px' }}>
                     Average Idle Time
                   </div>
                   <div style={{
-                    fontSize: '2.8rem',
+                    fontSize: '1.5rem',
                     fontWeight: '900',
                     color: '#ed8936',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                    textShadow: '0 1px 2px rgba(0,0,0,0.1)'
                   }}>
                     {hotspot.averageIdleTime}
                   </div>
                 </div>
                 <div style={{
                   background: '#fffaf0',
-                  padding: '16px',
-                  borderRadius: '10px',
-                  borderLeft: '4px solid #ed8936'
+                  padding: '8px',
+                  borderRadius: '6px',
+                  borderLeft: '2px solid #ed8936'
                 }}>
-                  <strong style={{ fontSize: '1.05rem', color: '#7c2d12', display: 'block', marginBottom: '12px' }}>
+                  <strong style={{ fontSize: '0.85rem', color: '#7c2d12', display: 'block', marginBottom: '6px' }}>
                     🔍 Possible Causes:
                   </strong>
                   <ul style={{
@@ -300,12 +297,12 @@ export default function Synthesis({ data, fullData }: Props) {
                   }}>
                     {hotspot.possibleCauses.map((cause, idx) => (
                       <li key={idx} style={{
-                        marginBottom: '10px',
-                        fontSize: '1rem',
-                        paddingLeft: '24px',
+                        marginBottom: '6px',
+                        fontSize: '0.8rem',
+                        paddingLeft: '16px',
                         position: 'relative',
                         color: '#2d3748',
-                        lineHeight: '1.6'
+                        lineHeight: '1.4'
                       }}>
                         <span style={{
                           position: 'absolute',
@@ -327,97 +324,97 @@ export default function Synthesis({ data, fullData }: Props) {
       {/* COMMON ANOMALIES */}
       <div style={{
         background: 'linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%)',
-        padding: '30px',
-        borderRadius: '16px',
+        padding: '12px',
+        borderRadius: '10px',
         border: '2px solid #f56565',
-        boxShadow: '0 4px 20px rgba(245, 101, 101, 0.15)'
+        boxShadow: '0 2px 10px rgba(245, 101, 101, 0.15)'
       }}>
         <h3 style={{
           color: '#c53030',
-          marginBottom: '24px',
-          fontSize: '2rem',
+          marginBottom: '10px',
+          fontSize: '1.2rem',
           fontWeight: '800',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '8px',
           textTransform: 'uppercase',
-          letterSpacing: '0.5px'
+          letterSpacing: '0.3px'
         }}>
-          <AlertTriangle size={28} />
+          <AlertTriangle size={20} />
           Common Anomalies
         </h3>
         <div className="card-grid">
           {data.commonAnomalies.map((anomaly, index) => (
             <div key={index} style={{
               background: 'white',
-              borderRadius: '12px',
-              padding: '24px',
-              boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+              borderRadius: '8px',
+              padding: '12px',
+              boxShadow: '0 1px 6px rgba(0, 0, 0, 0.08)',
               border: '1px solid #feb2b2'
             }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <div style={{
                   background: 'linear-gradient(135deg, #f56565 0%, #e53e3e 100%)',
-                  borderRadius: '10px',
-                  padding: '10px',
+                  borderRadius: '6px',
+                  padding: '6px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  minWidth: '40px',
-                  height: '40px'
+                  minWidth: '28px',
+                  height: '28px'
                 }}>
-                  <AlertTriangle size={24} stroke="white" strokeWidth={2.5} />
+                  <AlertTriangle size={16} stroke="white" strokeWidth={2.5} />
                 </div>
                 <div style={{ flex: 1 }}>
                   <h4 style={{
-                    fontSize: '1.1rem',
+                    fontSize: '0.9rem',
                     color: '#1a202c',
-                    marginBottom: '14px',
+                    marginBottom: '8px',
                     fontWeight: '700'
                   }}>
                     Issue #{index + 1}
                   </h4>
                   <p style={{
-                    padding: '16px',
+                    padding: '8px',
                     background: 'linear-gradient(135deg, #feb2b2 0%, #fc8181 100%)',
-                    borderRadius: '10px',
+                    borderRadius: '6px',
                     fontWeight: '600',
                     color: '#742a2a',
-                    marginBottom: '16px',
-                    lineHeight: '1.6',
-                    fontSize: '1.05rem'
+                    marginBottom: '8px',
+                    lineHeight: '1.4',
+                    fontSize: '0.85rem'
                   }}>
                     {anomaly.anomaly}
                   </p>
                   <div style={{
-                    padding: '14px',
+                    padding: '8px',
                     background: '#f7fafc',
-                    borderRadius: '8px',
-                    marginBottom: '14px',
-                    borderLeft: '3px solid #f56565'
+                    borderRadius: '6px',
+                    marginBottom: '8px',
+                    borderLeft: '2px solid #f56565'
                   }}>
-                    <strong style={{ color: '#2d3748', fontSize: '0.95rem' }}>👥 Agents Affected:</strong>
+                    <strong style={{ color: '#2d3748', fontSize: '0.8rem' }}>👥 Agents:</strong>
                     <div style={{
-                      fontSize: '0.95rem',
+                      fontSize: '0.8rem',
                       color: '#4a5568',
-                      marginTop: '6px',
+                      marginTop: '4px',
                       fontWeight: '500'
                     }}>
                       {getAgentNames(anomaly.agentsAffected)}
                     </div>
                   </div>
                   <div style={{
-                    padding: '14px',
+                    padding: '8px',
                     background: '#fff5f5',
-                    borderRadius: '8px',
-                    borderLeft: '3px solid #e53e3e'
+                    borderRadius: '6px',
+                    borderLeft: '2px solid #e53e3e'
                   }}>
-                    <strong style={{ color: '#c53030', fontSize: '0.95rem' }}>💥 Potential Impact:</strong>
+                    <strong style={{ color: '#c53030', fontSize: '0.8rem' }}>💥 Impact:</strong>
                     <div style={{
-                      marginTop: '6px',
+                      marginTop: '4px',
                       color: '#2d3748',
-                      lineHeight: '1.6',
-                      fontSize: '0.95rem'
+                      lineHeight: '1.4',
+                      fontSize: '0.8rem'
                     }}>
                       {anomaly.potentialImpact}
                     </div>
