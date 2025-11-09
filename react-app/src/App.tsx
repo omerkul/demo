@@ -6,6 +6,7 @@ import AgentPerformance from './components/AgentPerformance';
 import ApplicationUsage from './components/ApplicationUsage';
 import BusinessProcessAnalysis from './components/BusinessProcessAnalysis';
 import Synthesis from './components/Synthesis';
+import Chatbot from './components/Chatbot';
 
 function App() {
   const [data, setData] = useState<ReportData | null>(null);
@@ -59,17 +60,22 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <header className="app-header">
-        <h1 className="app-title">NiCE CXone Workforce Augmentation Dashboard</h1>
-      </header>
+    <>
+      <div className="app-container">
+        <header className="app-header">
+          <h1 className="app-title">NiCE CXone Workforce Augmentation Dashboard</h1>
+        </header>
 
-      <ReportMetadata metadata={data.reportMetadata} metrics={data.aggregatedMetrics} />
-      <AgentPerformance data={data.agentPerformance} />
-      <ApplicationUsage data={data.applicationUsage} />
-      <BusinessProcessAnalysis data={data.businessProcessAnalysis} />
-      <Synthesis data={data.synthesis} fullData={data} />
-    </div>
+        <ReportMetadata metadata={data.reportMetadata} metrics={data.aggregatedMetrics} />
+        <AgentPerformance data={data.agentPerformance} />
+        <ApplicationUsage data={data.applicationUsage} />
+        <BusinessProcessAnalysis data={data.businessProcessAnalysis} />
+        <Synthesis data={data.synthesis} fullData={data} />
+      </div>
+
+      {/* AI Copilot Chatbot - Outside container for proper floating */}
+      <Chatbot data={data} />
+    </>
   );
 }
 
