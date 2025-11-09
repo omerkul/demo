@@ -2,7 +2,7 @@
   "name": "processdiscoveryfromvideos",
   "version": "1.0.0",
   "main": "script.js",
-  "homepage": "https://<USERNAME>.github.io/processdiscoveryfromvideos",
+  "homepage": "https://omerkul.github.io/demo",
   "scripts": {
     "predeploy": "echo 'No build step needed'",
     "deploy": "gh-pages -d .",
