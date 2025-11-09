@@ -4,8 +4,8 @@
   "main": "script.js",
   "homepage": "https://omerkul.github.io/demo",
   "scripts": {
-    "predeploy": "echo 'No build step needed'",
-    "deploy": "gh-pages -d .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
