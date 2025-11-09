@@ -14,7 +14,9 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/data.json')
+    // Use base URL to ensure correct path on GitHub Pages
+    const dataPath = import.meta.env.BASE_URL + 'data.json';
+    fetch(dataPath)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to load data');
