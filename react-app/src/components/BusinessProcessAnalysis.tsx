@@ -21,52 +21,52 @@ export default function BusinessProcessAnalysis({ data }: Props) {
   return (
     <section className="section">
       <h2 className="section-title">
-        <RefreshCw size={32} />
+        <RefreshCw size={24} />
         Business Process Analysis
       </h2>
 
-      <h3 style={{ marginBottom: '20px', fontSize: '1.75rem', fontWeight: '700' }}>
+      <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700' }}>
         🔁 Recurring Routines
       </h3>
       {data.recurringRoutines.map((routine) => (
-        <div key={routine.routineLabel} className="card" style={{ marginBottom: '30px' }}>
-          <h3 className="card-title" style={{ color: '#667eea', fontSize: '1.5rem' }}>
+        <div key={routine.routineLabel} className="card" style={{ marginBottom: '15px' }}>
+          <h3 className="card-title" style={{ color: '#667eea', fontSize: '1.1rem' }}>
             📌 {routine.routineLabel}
           </h3>
           <p style={{
-            padding: '16px',
+            padding: '10px',
             background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
-            borderRadius: '12px',
-            borderLeft: '5px solid #667eea',
+            borderRadius: '8px',
+            borderLeft: '3px solid #667eea',
             fontStyle: 'italic',
-            fontSize: '1.05rem',
-            marginBottom: '20px'
+            fontSize: '0.9rem',
+            marginBottom: '10px'
           }}>
             {routine.patternSummary}
           </p>
-          <div style={{ display: 'flex', gap: '30px', marginBottom: '20px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '15px', marginBottom: '10px', flexWrap: 'wrap' }}>
             <div style={{
-              padding: '16px 24px',
+              padding: '10px 15px',
               background: 'linear-gradient(135deg, #667eea 20%, #764ba2 100%)',
-              borderRadius: '12px',
+              borderRadius: '8px',
               color: 'white',
-              boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)'
+              boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
             }}>
-              <strong style={{ fontSize: '0.9rem' }}>🔢 Total Occurrences</strong>
-              <p style={{ fontSize: '2rem', fontWeight: '800', margin: '8px 0 0 0' }}>{routine.totalOccurrences}</p>
+              <strong style={{ fontSize: '0.75rem' }}>🔢 Total Occurrences</strong>
+              <p style={{ fontSize: '1.3rem', fontWeight: '800', margin: '4px 0 0 0' }}>{routine.totalOccurrences}</p>
             </div>
             <div style={{
-              padding: '16px 24px',
+              padding: '10px 15px',
               background: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
-              borderRadius: '12px',
+              borderRadius: '8px',
               color: 'white',
-              boxShadow: '0 8px 20px rgba(72, 187, 120, 0.3)'
+              boxShadow: '0 4px 12px rgba(72, 187, 120, 0.3)'
             }}>
-              <strong style={{ fontSize: '0.9rem' }}>🏆 Most Efficient Agent</strong>
-              <p style={{ fontSize: '1.3rem', fontWeight: '700', margin: '8px 0 0 0' }}>{routine.mostEfficientAgent.agentName}</p>
+              <strong style={{ fontSize: '0.75rem' }}>🏆 Most Efficient Agent</strong>
+              <p style={{ fontSize: '1rem', fontWeight: '700', margin: '4px 0 0 0' }}>{routine.mostEfficientAgent.agentName}</p>
             </div>
           </div>
-          <h4 style={{ marginTop: '30px', marginBottom: '15px', fontSize: '1.15rem', fontWeight: '600' }}>
+          <h4 style={{ marginTop: '12px', marginBottom: '8px', fontSize: '0.95rem', fontWeight: '600' }}>
             👥 Agent Performance Comparison
           </h4>
           <div className="table-container">
@@ -93,8 +93,8 @@ export default function BusinessProcessAnalysis({ data }: Props) {
                         {agent.efficiency}
                       </span>
                     </td>
-                    <td style={{ fontWeight: '700', color: '#667eea', fontSize: '1.05rem' }}>{agent.handleTime}</td>
-                    <td style={{ fontSize: '0.95rem' }}>{agent.justification}</td>
+                    <td style={{ fontWeight: '700', color: '#667eea', fontSize: '0.95rem' }}>{agent.handleTime}</td>
+                    <td style={{ fontSize: '0.85rem' }}>{agent.justification}</td>
                   </tr>
                 ))}
               </tbody>

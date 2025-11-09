@@ -20,107 +20,93 @@ export default function ReportMetadata({ metadata, metrics }: Props) {
   return (
     <section className="section">
       <h2 className="section-title">
-        <FileText size={32} />
+        <FileText size={24} />
         Report Overview
       </h2>
 
-      <div className="card-grid">
-        {/* Total Calls Card */}
-        <div className="card" style={{ background: getGradientForIndex(2) }}>
-          <h3 className="card-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Phone size={24} />
-            Total Calls Analyzed
-          </h3>
-          <p style={{
-            fontSize: '2.5rem',
-            fontWeight: '900',
-            color: '#2d3748',
-            marginTop: '10px'
-          }}>
-            {metadata.totalCallsAnalyzed}
-          </p>
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+        {/* Left Side - Metric Cards (Stacked Vertically) */}
+        <div style={{ flex: '0 0 30%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {/* Total Calls Card */}
+          <div className="card" style={{ background: getGradientForIndex(2), padding: '12px' }}>
+            <h3 style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', fontWeight: '700' }}>
+              <Phone size={16} />
+              Total Calls
+            </h3>
+            <p style={{
+              fontSize: '1.5rem',
+              fontWeight: '900',
+              color: '#2d3748',
+              margin: 0
+            }}>
+              {metadata.totalCallsAnalyzed}
+            </p>
+          </div>
+
+          {/* Average Handling Time Card */}
+          <div className="card" style={{ background: getGradientForIndex(3), padding: '12px' }}>
+            <h3 style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', fontWeight: '700' }}>
+              <Clock size={16} />
+              Avg Handle Time
+            </h3>
+            <p style={{
+              fontSize: '1.5rem',
+              fontWeight: '900',
+              color: '#2d3748',
+              margin: 0
+            }}>
+              {metrics.averageHandlingTime.overallAverage}
+            </p>
+          </div>
+
+          {/* Average After-Call Work Card */}
+          <div className="card" style={{ background: getGradientForIndex(0), padding: '12px' }}>
+            <h3 style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', fontWeight: '700' }}>
+              <Clock size={16} />
+              Avg After-Call
+            </h3>
+            <p style={{
+              fontSize: '1.5rem',
+              fontWeight: '900',
+              color: '#2d3748',
+              margin: 0
+            }}>
+              {metrics.averageAfterCallWork.overallAverage}
+            </p>
+          </div>
         </div>
 
-        {/* Average Handling Time Card */}
-        <div className="card" style={{ background: getGradientForIndex(3) }}>
-          <h3 className="card-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Clock size={24} />
-            Avg Handling Time
+        {/* Right Side - Call Metrics Details Table */}
+        <div style={{ flex: '1' }}>
+          <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700' }}>
+            Call Metrics Details
           </h3>
-          <p style={{
-            fontSize: '2.5rem',
-            fontWeight: '900',
-            color: '#2d3748',
-            marginTop: '10px'
-          }}>
-            {metrics.averageHandlingTime.overallAverage}
-          </p>
+          <div className="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Call ID</th>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Agent Name</th>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Handle Time</th>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>After-Call Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {metrics.averageHandlingTime.calls.map((call, index) => {
+                  const afterCallWorkCall = metrics.averageAfterCallWork.calls[index];
+                  return (
+                    <tr key={call.callId}>
+                      <td style={{ padding: '8px 10px', fontWeight: '600', color: '#667eea', fontSize: '0.85rem' }}>{call.callId}</td>
+                      <td style={{ padding: '8px 10px', fontSize: '0.85rem' }}>{call.agentName}</td>
+                      <td style={{ padding: '8px 10px', fontWeight: '600', fontSize: '0.85rem' }}>{call.issueHandleTime}</td>
+                      <td style={{ padding: '8px 10px', fontWeight: '600', fontSize: '0.85rem' }}>{afterCallWorkCall?.afterCallWorkTime || '-'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        {/* Average After-Call Work Card */}
-        <div className="card" style={{ background: getGradientForIndex(0) }}>
-          <h3 className="card-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Clock size={24} />
-            Avg After-Call Work
-          </h3>
-          <p style={{
-            fontSize: '2.5rem',
-            fontWeight: '900',
-            color: '#2d3748',
-            marginTop: '10px'
-          }}>
-            {metrics.averageAfterCallWork.overallAverage}
-          </p>
-        </div>
-      </div>
-
-      {/* Detailed Tables */}
-      <h3 style={{ marginTop: '40px', marginBottom: '20px', fontSize: '1.75rem', fontWeight: '700' }}>
-        Handling Time per Call
-      </h3>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Call ID</th>
-              <th>Agent Name</th>
-              <th>Issue Handle Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.averageHandlingTime.calls.map((call) => (
-              <tr key={call.callId}>
-                <td style={{ fontWeight: '600', color: '#667eea' }}>{call.callId}</td>
-                <td>{call.agentName}</td>
-                <td style={{ fontWeight: '600' }}>{call.issueHandleTime}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <h3 style={{ marginTop: '40px', marginBottom: '20px', fontSize: '1.75rem', fontWeight: '700' }}>
-        After-Call Work Time per Call
-      </h3>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Call ID</th>
-              <th>Agent Name</th>
-              <th>After-Call Work Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.averageAfterCallWork.calls.map((call) => (
-              <tr key={call.callId}>
-                <td style={{ fontWeight: '600', color: '#667eea' }}>{call.callId}</td>
-                <td>{call.agentName}</td>
-                <td style={{ fontWeight: '600' }}>{call.afterCallWorkTime}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </section>
   );
