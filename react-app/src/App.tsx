@@ -64,9 +64,9 @@ function App() {
     <>
       <div className="app-container">
         <header className="app-header">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
-            <img src={niceLogo} alt="NiCE Logo" style={{ height: '60px', width: 'auto' }} />
-            <h1 className="app-title">NiCE CXone Workforce Augmentation Dashboard</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+            <img src={niceLogo} alt="NiCE Logo" style={{ height: '60px', width: 'auto', position: 'absolute', left: 0 }} />
+            <h1 className="app-title" style={{ fontSize: '2.5rem' }}>NiCE CXone Workforce Augmentation Dashboard</h1>
           </div>
         </header>
 
