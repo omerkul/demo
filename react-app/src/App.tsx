@@ -71,7 +71,7 @@ function App() {
       <AgentPerformance data={data.agentPerformance} />
       <ApplicationUsage data={data.applicationUsage} />
       <BusinessProcessAnalysis data={data.businessProcessAnalysis} />
-      <Synthesis data={data.synthesis} />
+      <Synthesis data={data.synthesis} fullData={data} />
     </div>
   );
 }
