@@ -1,0 +1,313 @@
+{
+  "reportMetadata": {
+    "reportId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+    "generationDate": "2025-11-07T15:00:00Z",
+    "totalCallsAnalyzed": 6
+  },
+  "aggregatedMetrics": {
+    "averageHandlingTime": {
+      "overallAverage": "00:19:42",
+      "calls": [
+        {
+          "callId": "call-001",
+          "agentId": "agent-darryl-h",
+          "agentName": "Darryl Harris",
+          "issueHandleTime": "00:31:49"
+        },
+        {
+          "callId": "call-002",
+          "agentId": "agent-michael",
+          "agentName": "Michael",
+          "issueHandleTime": "00:08:45"
+        },
+        {
+          "callId": "call-003",
+          "agentId": "agent-benas",
+          "agentName": "Benas",
+          "issueHandleTime": "00:57:27"
+        },
+        {
+          "callId": "call-004",
+          "agentId": "agent-darryl-h",
+          "agentName": "Darryl Harris",
+          "issueHandleTime": "00:02:15"
+        },
+        {
+          "callId": "call-005",
+          "agentId": "agent-patryk-v",
+          "agentName": "Patryk Vrzsesinski",
+          "issueHandleTime": "00:04:27"
+        },
+        {
+          "callId": "call-006",
+          "agentId": "agent-anton-c",
+          "agentName": "Anton Cerpak",
+          "issueHandleTime": "00:13:30"
+        }
+      ]
+    },
+    "averageAfterCallWork": {
+      "overallAverage": "00:01:04",
+      "calls": [
+        {
+          "callId": "call-001",
+          "agentId": "agent-darryl-h",
+          "agentName": "Darryl Harris",
+          "afterCallWorkTime": "00:03:05"
+        },
+        {
+          "callId": "call-002",
+          "agentId": "agent-michael",
+          "agentName": "Michael",
+          "afterCallWorkTime": "00:00:34"
+        },
+        {
+          "callId": "call-003",
+          "agentId": "agent-benas",
+          "agentName": "Benas",
+          "afterCallWorkTime": "00:00:13"
+        },
+        {
+          "callId": "call-004",
+          "agentId": "agent-darryl-h",
+          "agentName": "Darryl Harris",
+          "afterCallWorkTime": "00:01:04"
+        },
+        {
+          "callId": "call-005",
+          "agentId": "agent-patryk-v",
+          "agentName": "Patryk Vrzsesinski",
+          "afterCallWorkTime": "00:00:00"
+        },
+        {
+          "callId": "call-006",
+          "agentId": "agent-anton-c",
+          "agentName": "Anton Cerpak",
+          "afterCallWorkTime": "00:01:27"
+        }
+      ]
+    }
+  },
+  "agentPerformance": {
+    "mostProductiveAgents": [
+      {
+        "agentId": "agent-patryk-v",
+        "agentName": "Patryk Vrzsesinski",
+        "justification": "Achieved an 'Excellent' rating by efficiently handling a multi-question technical call, performing a best-practice warm transfer, and completing all documentation concurrently to achieve zero seconds of After-Call Work.",
+        "metrics": {
+          "averageIssueHandleTime": "00:04:27",
+          "averageAfterCallWorkTime": "00:00:00",
+          "qualitativeRating": "Excellent"
+        }
+      },
+      {
+        "agentId": "agent-darryl-h",
+        "agentName": "Darryl Harris",
+        "justification": "Rated 'Excellent' for resolving a customer's issue in under 3 minutes with high efficiency, demonstrating best practices like creating visual documentation (screenshots) and minimizing ACW through concurrent work.",
+        "metrics": {
+          "averageIssueHandleTime": "00:02:15",
+          "averageAfterCallWorkTime": "00:01:04",
+          "qualitativeRating": "Excellent"
+        }
+      }
+    ],
+    "agentLeaderboard": [
+      {
+        "agentId": "agent-patryk-v",
+        "agentName": "Patryk Vrzsesinski",
+        "totalCalls": 1,
+        "averageIssueHandleTime": "00:04:27",
+        "averageAfterCallWorkTime": "00:00:00"
+      },
+      {
+        "agentId": "agent-michael",
+        "agentName": "Michael",
+        "totalCalls": 1,
+        "averageIssueHandleTime": "00:08:45",
+        "averageAfterCallWorkTime": "00:00:34"
+      },
+      {
+        "agentId": "agent-anton-c",
+        "agentName": "Anton Cerpak",
+        "totalCalls": 1,
+        "averageIssueHandleTime": "00:13:30",
+        "averageAfterCallWorkTime": "00:01:27"
+      },
+      {
+        "agentId": "agent-darryl-h",
+        "agentName": "Darryl Harris",
+        "totalCalls": 2,
+        "averageIssueHandleTime": "00:17:02",
+        "averageAfterCallWorkTime": "00:02:04"
+      },
+      {
+        "agentId": "agent-benas",
+        "agentName": "Benas",
+        "totalCalls": 1,
+        "averageIssueHandleTime": "00:57:27",
+        "averageAfterCallWorkTime": "00:00:13"
+      }
+    ]
+  },
+  "applicationUsage": {
+    "mostUsedApplications": [
+      {
+        "applicationName": "Google Chrome",
+        "totalActiveTime": "00:46:04",
+        "usageCount": 3
+      },
+      {
+        "applicationName": "Shift4 Marketplace / LogMeIn",
+        "totalActiveTime": "00:30:59",
+        "usageCount": 1
+      },
+      {
+        "applicationName": "Salesforce",
+        "totalActiveTime": "00:19:33",
+        "usageCount": 5
+      },
+      {
+        "applicationName": "Titan / Legacy Merchant DB",
+        "totalActiveTime": "00:17:11",
+        "usageCount": 6
+      }
+    ],
+    "applicationBreakdown": [
+      {
+        "applicationName": "Salesforce",
+        "totalActiveTime": "00:19:33",
+        "usageByAgent": [
+          { "agentId": "agent-darryl-h", "agentName": "Darryl Harris", "activeTime": "00:05:10" },
+          { "agentId": "agent-michael", "agentName": "Michael", "activeTime": "00:05:15" },
+          { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski", "activeTime": "00:04:14" },
+          { "agentId": "agent-anton-c", "agentName": "Anton Cerpak", "activeTime": "00:04:58" }
+        ]
+      },
+      {
+        "applicationName": "Titan / Legacy Merchant DB",
+        "totalActiveTime": "00:17:11",
+        "usageByAgent": [
+          { "agentId": "agent-darryl-h", "agentName": "Darryl Harris", "activeTime": "00:02:45" },
+          { "agentId": "agent-michael", "agentName": "Michael", "activeTime": "00:00:46" },
+          { "agentId": "agent-benas", "agentName": "Benas", "activeTime": "00:12:02" },
+          { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski", "activeTime": "00:00:17" },
+          { "agentId": "agent-anton-c", "agentName": "Anton Cerpak", "activeTime": "00:01:21" }
+        ]
+      },
+      {
+        "applicationName": "NICE CXone Suite",
+        "totalActiveTime": "01:00:21",
+        "usageByAgent": [
+          { "agentId": "agent-darryl-h", "agentName": "Darryl Harris", "activeTime": "00:00:32" },
+          { "agentId": "agent-michael", "agentName": "Michael", "activeTime": "00:00:10" },
+          { "agentId": "agent-benas", "agentName": "Benas", "activeTime": "00:58:28" },
+          { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski", "activeTime": "00:00:32" },
+          { "agentId": "agent-anton-c", "agentName": "Anton Cerpak", "activeTime": "00:00:39" }
+        ]
+      },
+      {
+        "applicationName": "Notepad",
+        "totalActiveTime": "00:02:28",
+        "usageByAgent": [
+          { "agentId": "agent-darryl-h", "agentName": "Darryl Harris", "activeTime": "00:00:15" },
+          { "agentId": "agent-michael", "agentName": "Michael", "activeTime": "00:00:09" },
+          { "agentId": "agent-benas", "agentName": "Benas", "activeTime": "00:01:10" },
+          { "agentId": "agent-anton-c", "agentName": "Anton Cerpak", "activeTime": "00:00:54" }
+        ]
+      },
+      {
+        "applicationName": "Slack",
+        "totalActiveTime": "00:04:29",
+        "usageByAgent": [
+          { "agentId": "agent-benas", "agentName": "Benas", "activeTime": "00:02:44" },
+          { "agentId": "agent-anton-c", "agentName": "Anton Cerpak", "activeTime": "00:01:45" }
+        ]
+      }
+    ]
+  },
+  "businessProcessAnalysis": {
+    "recurringRoutines": [
+      {
+        "routineLabel": "Create New Case in Salesforce",
+        "patternSummary": "From an Account page or new Case view, agent populates all mandatory fields (Contact, Origin, Department, Subject, Description, Category) to log a new customer interaction and saves the record.",
+        "totalOccurrences": 5,
+        "agents": [
+          { "agentId": "agent-michael", "agentName": "Michael", "efficiency": "Standard", "handleTime": "00:01:11", "justification": "Completed the process with standard manual data entry." },
+          { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski", "efficiency": "Most Efficient", "handleTime": "00:02:34", "justification": "Completed all case creation tasks concurrently during a customer hold, resulting in zero post-call work." }
+        ],
+        "mostEfficientAgent": { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski" }
+      },
+      {
+        "routineLabel": "Account Lookup in Legacy System (Titan)",
+        "patternSummary": "Agent opens the legacy 'Titan' or 'Internal Alerts' system, pastes a Merchant ID (MID) into the search field, and clicks 'Search' to retrieve and verify account details.",
+        "totalOccurrences": 6,
+        "agents": [
+          { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski", "efficiency": "Most Efficient", "handleTime": "00:00:17", "justification": "Used the system for a very brief cross-reference, spending the least amount of time in the legacy application." },
+          { "agentId": "agent-benas", "agentName": "Benas", "efficiency": "Least Efficient", "handleTime": "00:12:02", "justification": "Spent over 12 minutes navigating and searching within the system while investigating a billing issue." }
+        ],
+        "mostEfficientAgent": { "agentId": "agent-patryk-v", "agentName": "Patryk Vrzsesinski" }
+      }
+    ]
+  },
+  "synthesis": {
+    "commonAnomalies": [
+      {
+        "anomaly": "Reliance on multiple, non-integrated systems for a single task (e.g., Salesforce + Titan).",
+        "agentsAffected": ["agent-michael", "agent-benas", "agent-patryk-v", "agent-anton-c", "agent-darryl-h"],
+        "potentialImpact": "Increased handle time, higher cognitive load for agents, and risk of data entry errors due to context switching and manual data lookups."
+      },
+      {
+        "anomaly": "Use of unsecured Notepad application for sensitive customer information (MID, callback numbers).",
+        "agentsAffected": ["agent-benas", "agent-anton-c", "agent-darryl-h"],
+        "potentialImpact": "Significant security and compliance risk (PCI, PII). Data is unencrypted, unaudited, and may persist on the local machine."
+      },
+      {
+        "anomaly": "System error on case creation ('You must enter a Department').",
+        "agentsAffected": ["agent-darryl-h"],
+        "potentialImpact": "Minor increase in handle time and process friction. Suggests a potential UI/UX issue where the mandatory field is easily missed."
+      }
+    ],
+    "bestPractices": [
+      {
+        "practice": "Completing all case documentation during customer hold/consult time to eliminate After-Call Work.",
+        "agentsExhibiting": ["agent-patryk-v"],
+        "recommendation": "Promote 'Concurrent Work' as a standard operating procedure. Train agents on how to efficiently use hold periods to complete administrative tasks in Salesforce."
+      },
+      {
+        "practice": "Attaching visual evidence (screenshots) of completed actions to the case record.",
+        "agentsExhibiting": ["agent-darryl-h"],
+        "recommendation": "Incorporate 'Document with Proof' into the quality assurance scorecard. Provide training on using Snipping Tool or other screen capture utilities to improve audit trails and reduce disputes."
+      },
+      {
+        "practice": "Performing a warm, consultative transfer to a specialized queue.",
+        "agentsExhibiting": ["agent-benas", "agent-patryk-v"],
+        "recommendation": "Reinforce the importance of the warm transfer process. Highlight how providing context (like the case number) to the receiving agent creates a seamless customer experience."
+      }
+    ],
+    "idleTimeHotspots": [
+      {
+        "task": "Investigating complex billing issue while waiting for external support.",
+        "averageIdleTime": "00:48:09",
+        "possibleCauses": [
+          "Agent knowledge gap on a specific billing program ('Advantage Program').",
+          "High latency in receiving assistance from colleagues via Slack.",
+          "Process requires waiting for external input rather than having information readily available."
+        ]
+      }
+    ],
+    "strategicInsights": [
+      {
+        "insightId": "insight-001",
+        "description": "The persistent use of the 'Titan' legacy system by nearly every agent is the single largest source of process inefficiency identified. Handle times are directly impacted by agents having to switch between Salesforce and Titan to gather complete customer information. Prioritizing the full migration of Titan data and functionality into Salesforce would yield significant time savings."
+      },
+      {
+        "insightId": "insight-002",
+        "description": "A clear correlation exists between 'Excellent' performance ratings and proactive, efficient work habits that are not explicitly part of the core task, such as concurrent documentation (Patryk V.), adding visual proof (Darryl), and proactive value-add (Darryl H., Michael). This suggests that agent autonomy and a focus on holistic problem ownership are key drivers of quality."
+      },
+      {
+        "insightId": "insight-003",
+        "description": "The repeated use of Notepad for customer data points to a critical tooling gap and a major compliance risk. A secure, integrated 'Scratchpad' feature within Salesforce or the NICE CXone client should be investigated and deployed to provide a safe alternative and eliminate this risky behavior."
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "processdiscoveryfromvideos",
+  "version": "1.0.0",
+  "main": "script.js",
+  "homepage": "https://<USERNAME>.github.io/processdiscoveryfromvideos",
+  "scripts": {
+    "predeploy": "echo 'No build step needed'",
+    "deploy": "gh-pages -d .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
