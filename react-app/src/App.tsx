@@ -7,6 +7,7 @@ import ApplicationUsage from './components/ApplicationUsage';
 import BusinessProcessAnalysis from './components/BusinessProcessAnalysis';
 import Synthesis from './components/Synthesis';
 import Chatbot from './components/Chatbot';
+import niceLogo from './nicecx.png';
 
 function App() {
   const [data, setData] = useState<ReportData | null>(null);
@@ -63,7 +64,10 @@ function App() {
     <>
       <div className="app-container">
         <header className="app-header">
-          <h1 className="app-title">NiCE CXone Workforce Augmentation Dashboard</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
+            <img src={niceLogo} alt="NiCE Logo" style={{ height: '60px', width: 'auto' }} />
+            <h1 className="app-title">NiCE CXone Workforce Augmentation Dashboard</h1>
+          </div>
         </header>
 
         <ReportMetadata metadata={data.reportMetadata} metrics={data.aggregatedMetrics} />

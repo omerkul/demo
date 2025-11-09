@@ -25,83 +25,93 @@ export default function BusinessProcessAnalysis({ data }: Props) {
         Business Process Analysis
       </h2>
 
-      <h3 style={{ marginBottom: '10px', fontSize: '1.2rem', fontWeight: '700' }}>
+      <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700' }}>
         🔁 Recurring Routines
       </h3>
-      {data.recurringRoutines.map((routine) => (
-        <div key={routine.routineLabel} className="card" style={{ marginBottom: '15px' }}>
-          <h3 className="card-title" style={{ color: '#667eea', fontSize: '1.1rem' }}>
-            📌 {routine.routineLabel}
-          </h3>
-          <p style={{
-            padding: '10px',
-            background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
-            borderRadius: '8px',
-            borderLeft: '3px solid #667eea',
-            fontStyle: 'italic',
-            fontSize: '0.9rem',
-            marginBottom: '10px'
-          }}>
-            {routine.patternSummary}
-          </p>
-          <div style={{ display: 'flex', gap: '15px', marginBottom: '10px', flexWrap: 'wrap' }}>
-            <div style={{
-              padding: '10px 15px',
-              background: 'linear-gradient(135deg, #667eea 20%, #764ba2 100%)',
-              borderRadius: '8px',
-              color: 'white',
-              boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)'
+
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+        {data.recurringRoutines.map((routine) => (
+          <div key={routine.routineLabel} className="card" style={{ flex: '1', padding: '12px' }}>
+            <h3 style={{ color: '#667eea', fontSize: '0.95rem', fontWeight: '700', marginBottom: '6px' }}>
+              📌 {routine.routineLabel}
+            </h3>
+            <p style={{
+              padding: '8px',
+              background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
+              borderRadius: '6px',
+              borderLeft: '2px solid #667eea',
+              fontStyle: 'italic',
+              fontSize: '0.75rem',
+              marginBottom: '8px',
+              lineHeight: '1.3'
             }}>
-              <strong style={{ fontSize: '0.75rem' }}>🔢 Total Occurrences</strong>
-              <p style={{ fontSize: '1.3rem', fontWeight: '800', margin: '4px 0 0 0' }}>{routine.totalOccurrences}</p>
+              {routine.patternSummary}
+            </p>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+              <div style={{
+                padding: '6px 10px',
+                background: 'linear-gradient(135deg, #667eea 20%, #764ba2 100%)',
+                borderRadius: '6px',
+                color: 'white',
+                boxShadow: '0 2px 8px rgba(102, 126, 234, 0.3)',
+                flex: '1',
+                minWidth: '100px'
+              }}>
+                <strong style={{ fontSize: '0.65rem', display: 'block' }}>🔢 Occurrences</strong>
+                <p style={{ fontSize: '1.1rem', fontWeight: '800', margin: '2px 0 0 0' }}>{routine.totalOccurrences}</p>
+              </div>
+              <div style={{
+                padding: '6px 10px',
+                background: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
+                borderRadius: '6px',
+                color: 'white',
+                boxShadow: '0 2px 8px rgba(72, 187, 120, 0.3)',
+                flex: '1',
+                minWidth: '100px'
+              }}>
+                <strong style={{ fontSize: '0.65rem', display: 'block' }}>🏆 Top Agent</strong>
+                <p style={{ fontSize: '0.85rem', fontWeight: '700', margin: '2px 0 0 0' }}>{routine.mostEfficientAgent.agentName}</p>
+              </div>
             </div>
-            <div style={{
-              padding: '10px 15px',
-              background: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)',
-              borderRadius: '8px',
-              color: 'white',
-              boxShadow: '0 4px 12px rgba(72, 187, 120, 0.3)'
-            }}>
-              <strong style={{ fontSize: '0.75rem' }}>🏆 Most Efficient Agent</strong>
-              <p style={{ fontSize: '1rem', fontWeight: '700', margin: '4px 0 0 0' }}>{routine.mostEfficientAgent.agentName}</p>
-            </div>
-          </div>
-          <h4 style={{ marginTop: '12px', marginBottom: '8px', fontSize: '0.95rem', fontWeight: '600' }}>
-            👥 Agent Performance Comparison
-          </h4>
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Agent Name</th>
-                  <th>Efficiency</th>
-                  <th>Handle Time</th>
-                  <th>Justification</th>
-                </tr>
-              </thead>
-              <tbody>
-                {routine.agents.map((agent) => (
-                  <tr key={agent.agentId}>
-                    <td style={{ fontWeight: '700' }}>{agent.agentName}</td>
-                    <td>
-                      <span className="badge" style={{
-                        background: getEfficiencyColor(agent.efficiency),
-                        color: 'white',
-                        whiteSpace: 'nowrap'
-                      }}>
-                        {getEfficiencyIcon(agent.efficiency)}
-                        {agent.efficiency}
-                      </span>
-                    </td>
-                    <td style={{ fontWeight: '700', color: '#667eea', fontSize: '0.95rem' }}>{agent.handleTime}</td>
-                    <td style={{ fontSize: '0.85rem' }}>{agent.justification}</td>
+            <h4 style={{ marginTop: '8px', marginBottom: '6px', fontSize: '0.8rem', fontWeight: '600' }}>
+              👥 Agent Performance
+            </h4>
+            <div className="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th style={{ padding: '6px 8px', fontSize: '0.65rem' }}>Agent</th>
+                    <th style={{ padding: '6px 8px', fontSize: '0.65rem' }}>Efficiency</th>
+                    <th style={{ padding: '6px 8px', fontSize: '0.65rem' }}>Time</th>
+                    <th style={{ padding: '6px 8px', fontSize: '0.65rem' }}>Justification</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {routine.agents.map((agent) => (
+                    <tr key={agent.agentId}>
+                      <td style={{ padding: '6px 8px', fontWeight: '700', fontSize: '0.75rem' }}>{agent.agentName}</td>
+                      <td style={{ padding: '6px 8px' }}>
+                        <span className="badge" style={{
+                          background: getEfficiencyColor(agent.efficiency),
+                          color: 'white',
+                          whiteSpace: 'nowrap',
+                          fontSize: '0.65rem',
+                          padding: '2px 6px'
+                        }}>
+                          {getEfficiencyIcon(agent.efficiency)}
+                          {agent.efficiency}
+                        </span>
+                      </td>
+                      <td style={{ padding: '6px 8px', fontWeight: '700', color: '#667eea', fontSize: '0.75rem' }}>{agent.handleTime}</td>
+                      <td style={{ padding: '6px 8px', fontSize: '0.7rem', lineHeight: '1.3' }}>{agent.justification}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }

@@ -297,15 +297,15 @@
     ],
     "strategicInsights": [
       {
-        "insightId": "insight-001",
+        "insightId": "insight 1",
         "description": "The persistent use of the 'Titan' legacy system by nearly every agent is the single largest source of process inefficiency identified. Handle times are directly impacted by agents having to switch between Salesforce and Titan to gather complete customer information. Prioritizing the full migration of Titan data and functionality into Salesforce would yield significant time savings."
       },
       {
-        "insightId": "insight-002",
+        "insightId": "insight 2",
         "description": "A clear correlation exists between 'Excellent' performance ratings and proactive, efficient work habits that are not explicitly part of the core task, such as concurrent documentation (Patryk V.), adding visual proof (Darryl), and proactive value-add (Darryl H., Michael). This suggests that agent autonomy and a focus on holistic problem ownership are key drivers of quality."
       },
       {
-        "insightId": "insight-003",
+        "insightId": "insight 3",
         "description": "The repeated use of Notepad for customer data points to a critical tooling gap and a major compliance risk. A secure, integrated 'Scratchpad' feature within Salesforce or the NICE CXone client should be investigated and deployed to provide a safe alternative and eliminate this risky behavior."
       }
     ]
