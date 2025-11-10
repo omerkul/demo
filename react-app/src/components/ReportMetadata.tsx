@@ -87,6 +87,7 @@ export default function ReportMetadata({ metadata, metrics }: Props) {
                 <tr>
                   <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Call ID</th>
                   <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Agent Name</th>
+                  <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Agent Role</th>
                   <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>Handle Time</th>
                   <th style={{ padding: '8px 10px', fontSize: '0.7rem' }}>After-Call Time</th>
                 </tr>
@@ -98,6 +99,7 @@ export default function ReportMetadata({ metadata, metrics }: Props) {
                     <tr key={call.callId}>
                       <td style={{ padding: '8px 10px', fontWeight: '600', color: '#667eea', fontSize: '0.85rem' }}>{call.callId}</td>
                       <td style={{ padding: '8px 10px', fontSize: '0.85rem' }}>{call.agentName}</td>
+                      <td style={{ padding: '8px 10px', fontSize: '0.85rem' }}>{call.agentRole}</td>
                       <td style={{ padding: '8px 10px', fontWeight: '600', fontSize: '0.85rem' }}>{call.issueHandleTime}</td>
                       <td style={{ padding: '8px 10px', fontWeight: '600', fontSize: '0.85rem' }}>{afterCallWorkCall?.afterCallWorkTime || '-'}</td>
                     </tr>

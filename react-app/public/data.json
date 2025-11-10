@@ -12,36 +12,42 @@
           "callId": "call-001",
           "agentId": "agent-darryl-h",
           "agentName": "Darryl H",
+          "agentRole": "SkyTab POS Support",
           "issueHandleTime": "00:31:49"
         },
         {
           "callId": "call-002",
           "agentId": "agent-michael",
           "agentName": "Michael R",
+          "agentRole": "SkyTab POS Support",
           "issueHandleTime": "00:08:45"
         },
         {
           "callId": "call-003",
           "agentId": "agent-benas",
           "agentName": "Benas L",
+          "agentRole": "SkyTab POS Support",
           "issueHandleTime": "00:57:27"
         },
         {
           "callId": "call-004",
           "agentId": "agent-darryl-h",
           "agentName": "Darryl H",
+          "agentRole": "SkyTab POS Support",
           "issueHandleTime": "00:02:15"
         },
         {
           "callId": "call-005",
           "agentId": "agent-patryk-v",
           "agentName": "Patryk V",
+          "agentRole": "Customer Service",
           "issueHandleTime": "00:04:27"
         },
         {
           "callId": "call-006",
           "agentId": "agent-anton-c",
           "agentName": "Anton C",
+          "agentRole": "SkyTab POS Support",
           "issueHandleTime": "00:13:30"
         }
       ]
