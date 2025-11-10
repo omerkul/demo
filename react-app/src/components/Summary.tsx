@@ -317,7 +317,7 @@ export default function Summary() {
             </div>
             <ul style={{ fontSize: '1.3rem', color: '#2d3748', marginLeft: '0', paddingLeft: '18px', lineHeight: '1.7', fontWeight: '500' }}>
               <li>Cross prompt execution improvements</li>
-              <li>Performance improvements</li>
+              <li>Performance improvements - video segmentation, video decoding</li>
               <li>Prompt optimizations</li>
               <li>Discussions with Google for solution improvements and execution</li>
               <li>Additional research for VLM models (Nova light, TwelveLabs)</li>
