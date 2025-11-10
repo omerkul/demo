@@ -4,7 +4,7 @@ export default function Summary() {
   return (
     <div style={{ padding: '20px' }}>
       <h1 style={{
-        fontSize: '2.5rem',
+        fontSize: '3rem',
         fontWeight: '900',
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
         WebkitBackgroundClip: 'text',
@@ -16,8 +16,8 @@ export default function Summary() {
         Customer - Shift4 Payment
       </h1>
 
-      {/* First Row - 4 smaller cubes side by side */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '12px' }}>
+      {/* First Row - 5 smaller cubes side by side */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px', marginBottom: '12px' }}>
 
         {/* Video Extraction Card */}
         <div className="card" style={{
@@ -37,14 +37,14 @@ export default function Summary() {
             }}>
               <FileVideo size={24} stroke="white" />
             </div>
-            <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#22543d', margin: 0 }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#22543d', margin: 0 }}>
               Video Extraction from CXone to GCP
             </h2>
           </div>
-          <p style={{ fontSize: '0.95rem', fontWeight: '700', color: '#2d3748', marginBottom: '5px', textAlign: 'center' }}>
+          <p style={{ fontSize: '1.05rem', fontWeight: '700', color: '#2d3748', marginBottom: '5px', textAlign: 'center' }}>
             43 Videos Extracted
           </p>
-          <p style={{ fontSize: '0.8rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.9rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
             Each recording contains 1-4 screens
           </p>
         </div>
@@ -67,17 +67,17 @@ export default function Summary() {
             }}>
               <Crop size={24} stroke="white" />
             </div>
-            <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
               Pre-processing
             </h2>
           </div>
-          <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#2d3748', marginBottom: '6px', textAlign: 'center' }}>
+          <p style={{ fontSize: '1rem', fontWeight: '700', color: '#2d3748', marginBottom: '6px', textAlign: 'center' }}>
             Advanced Cropping Tool
           </p>
-          <p style={{ fontSize: '0.8rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.9rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
             Crops active screen to single screen version
           </p>
-          <p style={{ fontSize: '0.75rem', color: '#2c5282', marginTop: '6px', fontWeight: '600', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.85rem', color: '#2c5282', marginTop: '6px', fontWeight: '600', textAlign: 'center' }}>
             VLM optimized
           </p>
         </div>
@@ -100,15 +100,42 @@ export default function Summary() {
             }}>
               <Zap size={24} stroke="white" />
             </div>
-            <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
               VLM Model Execution
             </h2>
           </div>
-          <p style={{ fontSize: '0.85rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
             First prompt layer execution of a single video on a VLM model
           </p>
-          <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#7c2d12', marginTop: '8px', textAlign: 'center' }}>
+          <p style={{ fontSize: '1rem', fontWeight: '700', color: '#7c2d12', marginTop: '8px', textAlign: 'center' }}>
             (Gemini 2.5 Pro)
+          </p>
+        </div>
+
+        {/* LLM Model Execution Card */}
+        <div className="card" style={{
+          padding: '15px',
+          background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+          border: '2px solid #667eea'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: '10px',
+              padding: '10px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px'
+            }}>
+              <MessageSquare size={24} stroke="white" />
+            </div>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+              LLM Model Execution
+            </h2>
+          </div>
+          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+            Second prompt layer execution of multiple first layer outputs consolidating data per demand.
           </p>
         </div>
 
@@ -130,7 +157,7 @@ export default function Summary() {
             }}>
               <Zap size={24} stroke="white" />
             </div>
-            <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
               Performance
             </h2>
           </div>
@@ -143,10 +170,10 @@ export default function Summary() {
               textAlign: 'center',
               border: '2px solid #ed8936'
             }}>
-              <p style={{ fontSize: '0.7rem', color: '#7c2d12', fontWeight: '600' }}>
+              <p style={{ fontSize: '0.8rem', color: '#7c2d12', fontWeight: '600' }}>
                 5 min
               </p>
-              <p style={{ fontSize: '1.2rem', fontWeight: '900', color: '#ed8936' }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '900', color: '#ed8936' }}>
                 ~30s
               </p>
             </div>
@@ -158,10 +185,10 @@ export default function Summary() {
               textAlign: 'center',
               border: '2px solid #ed8936'
             }}>
-              <p style={{ fontSize: '0.7rem', color: '#7c2d12', fontWeight: '600' }}>
+              <p style={{ fontSize: '0.8rem', color: '#7c2d12', fontWeight: '600' }}>
                 10+ min
               </p>
-              <p style={{ fontSize: '1.2rem', fontWeight: '900', color: '#ed8936' }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '900', color: '#ed8936' }}>
                 1-5m
               </p>
             </div>
@@ -169,7 +196,7 @@ export default function Summary() {
         </div>
       </div>
 
-      {/* Second Row - Prompts spanning full width */}
+      {/* Second Row - Prompts spanning full width with ACD inside */}
       <div>
         {/* Prompts Card */}
         <div className="card" style={{
@@ -188,51 +215,65 @@ export default function Summary() {
             }}>
               <MessageSquare size={28} stroke="white" />
             </div>
-            <h2 style={{ fontSize: '1.3rem', fontWeight: '800', color: '#c53030', margin: 0 }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: '800', color: '#c53030', margin: 0 }}>
               Prompts - Analysis Types
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
             <div style={{
-              padding: '15px',
+              padding: '18px',
               background: 'white',
               borderRadius: '10px',
               border: '3px solid #48bb78',
               textAlign: 'center'
             }}>
-              <p style={{ fontSize: '1.1rem', fontWeight: '700', color: '#22543d' }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#22543d' }}>
                 📊 QMA
               </p>
-              <p style={{ fontSize: '0.8rem', color: '#4a5568', marginTop: '4px' }}>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Quality Management Analytics
               </p>
             </div>
             <div style={{
-              padding: '15px',
+              padding: '18px',
               background: 'white',
               borderRadius: '10px',
               border: '3px solid #4299e1',
               textAlign: 'center'
             }}>
-              <p style={{ fontSize: '1.1rem', fontWeight: '700', color: '#2c5282' }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#2c5282' }}>
                 🖥️ Desktop Discovery
               </p>
-              <p style={{ fontSize: '0.8rem', color: '#4a5568', marginTop: '4px' }}>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Application & Screen Analysis
               </p>
             </div>
             <div style={{
-              padding: '15px',
+              padding: '18px',
               background: 'white',
               borderRadius: '10px',
               border: '3px solid #f6ad55',
               textAlign: 'center'
             }}>
-              <p style={{ fontSize: '1.1rem', fontWeight: '700', color: '#7c2d12' }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#7c2d12' }}>
                 🔄 Process Analytics
               </p>
-              <p style={{ fontSize: '0.8rem', color: '#4a5568', marginTop: '4px' }}>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Workflow & Efficiency Analysis
+              </p>
+            </div>
+            <div style={{
+              padding: '18px',
+              background: 'white',
+              borderRadius: '10px',
+              border: '3px solid #38b2ac',
+              textAlign: 'center'
+            }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
+                📞 ACD
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
+                Talk Time, Handle Time, Active Time, After Call Work
               </p>
             </div>
           </div>
