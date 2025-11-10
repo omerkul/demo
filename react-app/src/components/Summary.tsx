@@ -320,7 +320,7 @@ export default function Summary() {
               <li>Performance improvements</li>
               <li>Prompt optimizations</li>
               <li>Discussions with Google for solution improvements and execution</li>
-              <li>Additional research for VLM module (Nova light, TwelveLabs)</li>
+              <li>Additional research for VLM models (Nova light, TwelveLabs)</li>
               <li>Process discovery - executing video and audio</li>
             </ul>
           </div>
