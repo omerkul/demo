@@ -311,11 +311,11 @@ export default function Summary() {
               }}>
                 <MessageSquare size={26} stroke="white" />
               </div>
-              <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
                 Next steps
               </h2>
             </div>
-            <ul style={{ fontSize: '1.1rem', color: '#2d3748', marginLeft: '0', paddingLeft: '18px', lineHeight: '1.7', fontWeight: '500' }}>
+            <ul style={{ fontSize: '1.3rem', color: '#2d3748', marginLeft: '0', paddingLeft: '18px', lineHeight: '1.7', fontWeight: '500' }}>
               <li>Cross prompt execution improvements</li>
               <li>Performance improvements</li>
               <li>Prompt optimizations</li>
