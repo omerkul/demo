@@ -33,24 +33,24 @@ export default function ApplicationUsage({ data }: Props) {
       <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
         {/* Left Side - Most Used Applications */}
         <div style={{ flex: '0 0 30%' }}>
-          <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Flame size={16} stroke="#f56565" />
+          <h3 style={{ marginBottom: '8px', fontSize: '1.1rem', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Flame size={18} stroke="#f56565" />
             Most Used Applications
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {data.mostUsedApplications.map((app, index) => (
               <div key={app.applicationName} className="card" style={{ background: getGradientForIndex(index), padding: '10px' }}>
-                <h3 style={{ fontSize: '0.9rem', fontWeight: '700', marginBottom: '6px' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '6px' }}>
                   {getMedalForIndex(index)} {app.applicationName}
                 </h3>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
                   <div>
                     <strong>⏰ Active Time:</strong>{' '}
-                    <span style={{ fontSize: '0.9rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
+                    <span style={{ fontSize: '1rem', fontWeight: '800', color: '#2d3748' }}>{app.totalActiveTime}</span>
                   </div>
                   <div>
                     <strong>🔢 Count:</strong>{' '}
-                    <span style={{ fontSize: '0.9rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
+                    <span style={{ fontSize: '1rem', fontWeight: '800', color: '#2d3748' }}>{app.usageCount}</span>
                   </div>
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function ApplicationUsage({ data }: Props) {
 
         {/* Right Side - Application Breakdown Table */}
         <div style={{ flex: '1' }}>
-          <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700' }}>
+          <h3 style={{ marginBottom: '8px', fontSize: '1.1rem', fontWeight: '700' }}>
             Application Breakdown by Agent
           </h3>
           <div className="table-container">
