@@ -29,16 +29,16 @@ body {
 
 #root {
   min-height: 100vh;
-  padding: 10px;
+  padding: 2px;
 }
 
 .app-container {
-  max-width: 1600px;
+  max-width: 90%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(30px);
   border-radius: 20px;
-  padding: 25px;
+  padding: 15px;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
 }
 
@@ -58,7 +58,7 @@ body {
 }
 
 .section {
-  margin-bottom: 25px;
+  margin-bottom: 6px;
 }
 
 .section-title {

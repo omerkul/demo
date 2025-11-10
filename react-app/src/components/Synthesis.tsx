@@ -42,13 +42,13 @@ export default function Synthesis({ data, fullData }: Props) {
           <h3 style={{
             color: '#22543d',
             marginBottom: '8px',
-            fontSize: '1rem',
+            fontSize: '1.1rem',
             fontWeight: '800',
             display: 'flex',
             alignItems: 'center',
             gap: '6px'
           }}>
-            <CheckCircle size={18} />
+            <CheckCircle size={20} />
             Best Practices
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -67,15 +67,15 @@ export default function Synthesis({ data, fullData }: Props) {
                   fontWeight: '600',
                   color: '#22543d',
                   marginBottom: '6px',
-                  lineHeight: '1.3',
-                  fontSize: '0.8rem'
+                  lineHeight: '1.4',
+                  fontSize: '0.9rem'
                 }}>
                   {practice.practice}
                 </p>
-                <div style={{ fontSize: '0.75rem', marginBottom: '4px', lineHeight: '1.3' }}>
+                <div style={{ fontSize: '0.85rem', marginBottom: '4px', lineHeight: '1.4' }}>
                   <strong style={{ color: '#2d3748' }}>👥</strong> {getAgentNames(practice.agentsExhibiting)}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#2d3748', lineHeight: '1.3' }}>
+                <div style={{ fontSize: '0.85rem', color: '#2d3748', lineHeight: '1.4' }}>
                   <strong style={{ color: '#22543d' }}>💡</strong> {practice.recommendation}
                 </div>
               </div>
@@ -95,13 +95,13 @@ export default function Synthesis({ data, fullData }: Props) {
           <h3 style={{
             color: '#2c5282',
             marginBottom: '8px',
-            fontSize: '1rem',
+            fontSize: '1.1rem',
             fontWeight: '800',
             display: 'flex',
             alignItems: 'center',
             gap: '6px'
           }}>
-            <Lightbulb size={18} />
+            <Lightbulb size={20} />
             Strategic Insights
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -115,7 +115,7 @@ export default function Synthesis({ data, fullData }: Props) {
               }}>
                 <h4 style={{
                   color: '#2c5282',
-                  fontSize: '0.85rem',
+                  fontSize: '0.95rem',
                   marginBottom: '6px',
                   fontWeight: '700'
                 }}>
@@ -125,10 +125,10 @@ export default function Synthesis({ data, fullData }: Props) {
                   padding: '6px',
                   background: 'linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%)',
                   borderRadius: '5px',
-                  lineHeight: '1.3',
+                  lineHeight: '1.4',
                   color: '#2c5282',
                   fontWeight: '600',
-                  fontSize: '0.8rem'
+                  fontSize: '0.9rem'
                 }}>
                   {insight.description}
                 </p>
@@ -149,13 +149,13 @@ export default function Synthesis({ data, fullData }: Props) {
           <h3 style={{
             color: '#7c2d12',
             marginBottom: '8px',
-            fontSize: '1rem',
+            fontSize: '1.1rem',
             fontWeight: '800',
             display: 'flex',
             alignItems: 'center',
             gap: '6px'
           }}>
-            <PauseCircle size={18} />
+            <PauseCircle size={20} />
             Idle Time Hotspots
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -169,7 +169,7 @@ export default function Synthesis({ data, fullData }: Props) {
               }}>
                 <h4 style={{
                   color: '#7c2d12',
-                  fontSize: '0.85rem',
+                  fontSize: '0.95rem',
                   marginBottom: '6px',
                   fontWeight: '700'
                 }}>
@@ -182,29 +182,29 @@ export default function Synthesis({ data, fullData }: Props) {
                   marginBottom: '6px',
                   textAlign: 'center'
                 }}>
-                  <div style={{ fontSize: '0.7rem', color: '#7c2d12', fontWeight: '600' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#7c2d12', fontWeight: '600' }}>
                     Avg Idle Time
                   </div>
                   <div style={{
-                    fontSize: '1.2rem',
+                    fontSize: '1.3rem',
                     fontWeight: '900',
                     color: '#ed8936'
                   }}>
                     {hotspot.averageIdleTime}
                   </div>
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#7c2d12', fontWeight: '600', marginBottom: '4px' }}>
+                <div style={{ fontSize: '0.85rem', color: '#7c2d12', fontWeight: '600', marginBottom: '4px' }}>
                   🔍 Causes:
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {hotspot.possibleCauses.map((cause, idx) => (
                     <li key={idx} style={{
                       marginBottom: '3px',
-                      fontSize: '0.75rem',
+                      fontSize: '0.85rem',
                       paddingLeft: '12px',
                       position: 'relative',
                       color: '#2d3748',
-                      lineHeight: '1.3'
+                      lineHeight: '1.4'
                     }}>
                       <span style={{
                         position: 'absolute',
@@ -233,13 +233,13 @@ export default function Synthesis({ data, fullData }: Props) {
           <h3 style={{
             color: '#c53030',
             marginBottom: '8px',
-            fontSize: '1rem',
+            fontSize: '1.1rem',
             fontWeight: '800',
             display: 'flex',
             alignItems: 'center',
             gap: '6px'
           }}>
-            <AlertTriangle size={18} />
+            <AlertTriangle size={20} />
             Common Anomalies
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -258,15 +258,15 @@ export default function Synthesis({ data, fullData }: Props) {
                   fontWeight: '600',
                   color: '#742a2a',
                   marginBottom: '6px',
-                  lineHeight: '1.3',
-                  fontSize: '0.8rem'
+                  lineHeight: '1.4',
+                  fontSize: '0.9rem'
                 }}>
                   {anomaly.anomaly}
                 </p>
-                <div style={{ fontSize: '0.75rem', marginBottom: '4px', lineHeight: '1.3' }}>
+                <div style={{ fontSize: '0.85rem', marginBottom: '4px', lineHeight: '1.4' }}>
                   <strong style={{ color: '#2d3748' }}>👥</strong> {getAgentNames(anomaly.agentsAffected)}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#2d3748', lineHeight: '1.3' }}>
+                <div style={{ fontSize: '0.85rem', color: '#2d3748', lineHeight: '1.4' }}>
                   <strong style={{ color: '#c53030' }}>💥</strong> {anomaly.potentialImpact}
                 </div>
               </div>

@@ -70,10 +70,26 @@ function App() {
           </div>
         </header>
 
-        <ReportMetadata metadata={data.reportMetadata} metrics={data.aggregatedMetrics} />
-        <AgentPerformance data={data.agentPerformance} />
-        <ApplicationUsage data={data.applicationUsage} />
-        <BusinessProcessAnalysis data={data.businessProcessAnalysis} />
+        {/* First row: Report Overview and Agent Performance side by side */}
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '6px' }}>
+          <div style={{ flex: '1' }}>
+            <ReportMetadata metadata={data.reportMetadata} metrics={data.aggregatedMetrics} />
+          </div>
+          <div style={{ flex: '1' }}>
+            <AgentPerformance data={data.agentPerformance} />
+          </div>
+        </div>
+
+        {/* Second row: Application Usage and Business Process Analysis side by side */}
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '6px' }}>
+          <div style={{ flex: '1' }}>
+            <ApplicationUsage data={data.applicationUsage} />
+          </div>
+          <div style={{ flex: '1' }}>
+            <BusinessProcessAnalysis data={data.businessProcessAnalysis} />
+          </div>
+        </div>
+
         <Synthesis data={data.synthesis} fullData={data} />
       </div>
 
