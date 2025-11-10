@@ -219,7 +219,7 @@ export default function Summary() {
               Prompts - Analysis Types
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
             <div style={{
               padding: '18px',
               background: 'white',
@@ -262,75 +262,19 @@ export default function Summary() {
                 Workflow & Efficiency Analysis
               </p>
             </div>
-          </div>
-
-          {/* ACD Section inside Prompts Card */}
-          <div style={{
-            background: 'linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%)',
-            padding: '18px',
-            borderRadius: '10px',
-            border: '2px solid #38b2ac'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-              <div style={{
-                background: 'linear-gradient(135deg, #38b2ac 0%, #319795 100%)',
-                borderRadius: '10px',
-                padding: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <MessageSquare size={24} stroke="white" />
-              </div>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#234e52', margin: 0 }}>
-                ACD
-              </h3>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
-              <div style={{
-                padding: '15px',
-                background: 'white',
-                borderRadius: '10px',
-                border: '3px solid #38b2ac',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: '#234e52' }}>
-                  💬 Talk Time
-                </p>
-              </div>
-              <div style={{
-                padding: '15px',
-                background: 'white',
-                borderRadius: '10px',
-                border: '3px solid #38b2ac',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: '#234e52' }}>
-                  ⏱️ Handle Time
-                </p>
-              </div>
-              <div style={{
-                padding: '15px',
-                background: 'white',
-                borderRadius: '10px',
-                border: '3px solid #38b2ac',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: '#234e52' }}>
-                  ⚡ Active Time
-                </p>
-              </div>
-              <div style={{
-                padding: '15px',
-                background: 'white',
-                borderRadius: '10px',
-                border: '3px solid #38b2ac',
-                textAlign: 'center'
-              }}>
-                <p style={{ fontSize: '1.2rem', fontWeight: '700', color: '#234e52' }}>
-                  📝 After Call Work
-                </p>
-              </div>
+            <div style={{
+              padding: '18px',
+              background: 'white',
+              borderRadius: '10px',
+              border: '3px solid #38b2ac',
+              textAlign: 'center'
+            }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
+                📞 ACD
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
+                Talk Time, Handle Time, Active Time, After Call Work
+              </p>
             </div>
           </div>
         </div>
