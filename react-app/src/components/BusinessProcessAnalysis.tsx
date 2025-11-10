@@ -22,7 +22,7 @@ export default function BusinessProcessAnalysis({ data }: Props) {
     <section className="section">
       <h2 className="section-title">
         <RefreshCw size={24} />
-        Business Process Analysis
+          Business Process Analytics
       </h2>
 
       <h3 style={{ marginBottom: '8px', fontSize: '1rem', fontWeight: '700' }}>

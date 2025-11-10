@@ -25,7 +25,7 @@ export default function Synthesis({ data, fullData }: Props) {
     <section className="section">
       <h2 className="section-title">
         <Target size={24} />
-        Insights
+        Desktop Ai Insights
       </h2>
 
       {/* All four subsections in ONE line */}
