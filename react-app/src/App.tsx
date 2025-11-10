@@ -14,7 +14,7 @@ function App() {
     const [data, setData] = useState<ReportData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [currentPage, setCurrentPage] = useState<'dashboard' | 'summary'>('dashboard');
+    const [currentPage, setCurrentPage] = useState<'dashboard' | 'summary'>('summary');
 
     useEffect(() => {
         // Use base URL to ensure correct path on GitHub Pages
@@ -195,4 +195,3 @@ function App() {
 }
 
 export default App;
-

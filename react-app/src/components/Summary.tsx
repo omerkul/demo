@@ -112,33 +112,6 @@ export default function Summary() {
           </p>
         </div>
 
-        {/* LLM Model Execution Card */}
-        <div className="card" style={{
-          padding: '15px',
-          background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
-          border: '2px solid #667eea'
-        }}>
-          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-            <div style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              borderRadius: '10px',
-              padding: '10px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '8px'
-            }}>
-              <MessageSquare size={24} stroke="white" />
-            </div>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
-              LLM Model Execution
-            </h2>
-          </div>
-          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
-            Second prompt layer execution of multiple first layer outputs consolidating data per demand.
-          </p>
-        </div>
-
         {/* Performance Card */}
         <div className="card" style={{
           padding: '15px',
@@ -158,7 +131,7 @@ export default function Summary() {
               <Zap size={24} stroke="white" />
             </div>
             <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
-              Performance
+              Performance (VLM model execution)
             </h2>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -194,6 +167,33 @@ export default function Summary() {
             </div>
           </div>
         </div>
+
+        {/* LLM Model Execution Card */}
+        <div className="card" style={{
+          padding: '15px',
+          background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+          border: '2px solid #667eea'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: '10px',
+              padding: '10px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px'
+            }}>
+              <MessageSquare size={24} stroke="white" />
+            </div>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+              LLM Model Execution
+            </h2>
+          </div>
+          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+            Second prompt layer execution of multiple first layer outputs consolidating data per demand.
+          </p>
+        </div>
       </div>
 
       {/* Second Row - Prompts spanning full width with ACD inside */}
@@ -220,6 +220,20 @@ export default function Summary() {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+            <div style={{
+              padding: '18px',
+              background: 'white',
+              borderRadius: '10px',
+              border: '3px solid #38b2ac',
+              textAlign: 'center'
+            }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
+                📞 ACD
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
+                Talk Time, Handle Time, Active Time, After Call Work
+              </p>
+            </div>
             <div style={{
               padding: '18px',
               background: 'white',
@@ -260,20 +274,6 @@ export default function Summary() {
               </p>
               <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Workflow & Efficiency Analysis
-              </p>
-            </div>
-            <div style={{
-              padding: '18px',
-              background: 'white',
-              borderRadius: '10px',
-              border: '3px solid #38b2ac',
-              textAlign: 'center'
-            }}>
-              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
-                📞 ACD
-              </p>
-              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
-                Talk Time, Handle Time, Active Time, After Call Work
               </p>
             </div>
           </div>
