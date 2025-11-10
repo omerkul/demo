@@ -28,6 +28,7 @@ export interface Call {
   callId: string;
   agentId: string;
   agentName: string;
+  agentRole: string;
   issueHandleTime: string;
 }
 
