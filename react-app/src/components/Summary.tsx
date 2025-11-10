@@ -112,33 +112,6 @@ export default function Summary() {
           </p>
         </div>
 
-        {/* LLM Model Execution Card */}
-        <div className="card" style={{
-          padding: '15px',
-          background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
-          border: '2px solid #667eea'
-        }}>
-          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-            <div style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              borderRadius: '10px',
-              padding: '10px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '8px'
-            }}>
-              <MessageSquare size={24} stroke="white" />
-            </div>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
-              LLM Model Execution
-            </h2>
-          </div>
-          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
-            Second prompt layer execution of multiple first layer outputs consolidating data per demand.
-          </p>
-        </div>
-
         {/* Performance Card */}
         <div className="card" style={{
           padding: '15px',
@@ -158,7 +131,7 @@ export default function Summary() {
               <Zap size={24} stroke="white" />
             </div>
             <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#7c2d12', margin: 0 }}>
-              Performance
+              Performance (VLM model execution)
             </h2>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -194,6 +167,33 @@ export default function Summary() {
             </div>
           </div>
         </div>
+
+        {/* LLM Model Execution Card */}
+        <div className="card" style={{
+          padding: '15px',
+          background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+          border: '2px solid #667eea'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: '10px',
+              padding: '10px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px'
+            }}>
+              <MessageSquare size={24} stroke="white" />
+            </div>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+              LLM Model Execution
+            </h2>
+          </div>
+          <p style={{ fontSize: '0.95rem', color: '#4a5568', lineHeight: '1.3', textAlign: 'center' }}>
+            Second prompt layer execution of multiple first layer outputs consolidating data per demand.
+          </p>
+        </div>
       </div>
 
       {/* Second Row - Prompts spanning full width with ACD inside */}
@@ -224,6 +224,23 @@ export default function Summary() {
               padding: '18px',
               background: 'white',
               borderRadius: '10px',
+              border: '3px solid #38b2ac',
+              textAlign: 'center'
+            }}>
+              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
+                📞 ACD
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
+                Talk Time, Handle Time, Active Time, After Call Work
+              </p>
+              <p style={{ fontSize: '1rem', color: '#38b2ac', marginTop: '8px', fontWeight: '600' }}>
+                Accuracy: ~95%
+              </p>
+            </div>
+            <div style={{
+              padding: '18px',
+              background: 'white',
+              borderRadius: '10px',
               border: '3px solid #48bb78',
               textAlign: 'center'
             }}>
@@ -232,6 +249,9 @@ export default function Summary() {
               </p>
               <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Quality Management Analytics
+              </p>
+              <p style={{ fontSize: '1rem', color: '#48bb78', marginTop: '8px', fontWeight: '600' }}>
+                Accuracy: ~90%
               </p>
             </div>
             <div style={{
@@ -247,6 +267,9 @@ export default function Summary() {
               <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Application & Screen Analysis
               </p>
+              <p style={{ fontSize: '1rem', color: '#4299e1', marginTop: '8px', fontWeight: '600' }}>
+                Accuracy: ~92%
+              </p>
             </div>
             <div style={{
               padding: '18px',
@@ -261,25 +284,48 @@ export default function Summary() {
               <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
                 Workflow & Efficiency Analysis
               </p>
-            </div>
-            <div style={{
-              padding: '18px',
-              background: 'white',
-              borderRadius: '10px',
-              border: '3px solid #38b2ac',
-              textAlign: 'center'
-            }}>
-              <p style={{ fontSize: '1.3rem', fontWeight: '700', color: '#234e52' }}>
-                📞 ACD
-              </p>
-              <p style={{ fontSize: '0.95rem', color: '#4a5568', marginTop: '4px' }}>
-                Talk Time, Handle Time, Active Time, After Call Work
+              <p style={{ fontSize: '1rem', color: '#f6ad55', marginTop: '8px', fontWeight: '600' }}>
+                Accuracy: ~84%
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Next Steps Card under Prompts - Analysis Types */}
+        <div style={{ marginTop: '18px' }}>
+          <div className="card" style={{
+            padding: '22px',
+            background: 'linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%)',
+            border: '2px solid #667eea',
+            borderRadius: '12px',
+            boxShadow: '0 4px 16px rgba(102,126,234,0.08)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
+              <div style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: '10px',
+                padding: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <MessageSquare size={26} stroke="white" />
+              </div>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: '#2c5282', margin: 0 }}>
+                Next steps
+              </h2>
+            </div>
+            <ul style={{ fontSize: '1.3rem', color: '#2d3748', marginLeft: '0', paddingLeft: '18px', lineHeight: '1.7', fontWeight: '500' }}>
+              <li>Cross prompt execution improvements</li>
+              <li>Performance improvements</li>
+              <li>Prompt optimizations</li>
+              <li>Discussions with Google for solution improvements and execution</li>
+              <li>Additional research for VLM module (Nova light, TwelveLabs)</li>
+              <li>Process discovery - executing video and audio</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
