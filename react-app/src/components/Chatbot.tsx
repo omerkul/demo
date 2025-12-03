@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, BarChart3 } from 'lucide-react';
 import { ReportData } from '../types';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 
 interface Props {
   data: ReportData;
@@ -11,6 +12,11 @@ interface Message {
   text: string;
   isUser: boolean;
   timestamp: Date;
+  chartData?: {
+    type: 'bar' | 'line' | 'pie';
+    data: any[];
+    title: string;
+  };
 }
 
 export default function Chatbot({ data }: Props) {
@@ -18,7 +24,7 @@ export default function Chatbot({ data }: Props) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 0,
-      text: "👋 Hi! I'm your AI Copilot. I can help you analyze this report. Try asking me questions like:\n\n• Who are the top performing agents?\n• What are the main issues?\n• Show me the best practices\n• What applications are used most?",
+      text: "👋 Hi! I'm your AI Copilot. I can help you analyze this report with visualizations!\n\n🔍 Try asking:\n• Compare agent handling times (chart)\n• Show application usage breakdown (chart)\n• Visualize agent call volumes (chart)\n• What are the top performing agents?",
       isUser: false,
       timestamp: new Date()
     }
@@ -27,75 +33,165 @@ export default function Chatbot({ data }: Props) {
   const [isTyping, setIsTyping] = useState(false);
 
   const exampleQuestions = [
-    "Who are the top performing agents?",
-    "What are the main anomalies?",
-    "Show me the best practices",
-    "What's the average handling time?"
+    "Compare agent handling times (chart)",
+    "Show application usage breakdown (chart)",
+    "Visualize agent call volumes (chart)",
+    "What are the best practices?"
   ];
 
-  const generateResponse = (question: string): string => {
+  const generateResponse = (question: string): { text: string; chartData?: any } => {
     const lowerQuestion = question.toLowerCase();
+
+    // Visualization: Agent handling times comparison
+    if (lowerQuestion.includes('compare') && lowerQuestion.includes('handling') ||
+        lowerQuestion.includes('handling time') && lowerQuestion.includes('chart')) {
+      const chartData = data.agentPerformance.agentLeaderboard.map(agent => ({
+        name: agent.agentName,
+        handleTime: parseFloat(agent.averageIssueHandleTime.replace(/[^\d.]/g, '')) || 0,
+        afterCallTime: parseFloat(agent.averageAfterCallWorkTime.replace(/[^\d.]/g, '')) || 0
+      }));
+      return {
+        text: `Here's a comparison of handling times across all agents. The chart shows both average handle time and after-call work time for each agent.`,
+        chartData: {
+          type: 'bar',
+          data: chartData,
+          title: 'Agent Handling Time Comparison'
+        }
+      };
+    }
+
+    // Visualization: Application usage breakdown
+    if ((lowerQuestion.includes('application') || lowerQuestion.includes('app')) &&
+        (lowerQuestion.includes('chart') || lowerQuestion.includes('visualize') || lowerQuestion.includes('breakdown'))) {
+      const chartData = data.applicationUsage.mostUsedApplications.map(app => ({
+        name: app.applicationName,
+        activeTime: parseFloat(app.totalActiveTime.replace(/[^\d.]/g, '')) || 0,
+        usageCount: app.usageCount
+      }));
+      return {
+        text: `Here's the application usage breakdown showing active time for each application.`,
+        chartData: {
+          type: 'pie',
+          data: chartData,
+          title: 'Application Usage Distribution'
+        }
+      };
+    }
+
+    // Visualization: Agent call volumes
+    if ((lowerQuestion.includes('call') && lowerQuestion.includes('volume')) ||
+        (lowerQuestion.includes('calls') && lowerQuestion.includes('chart'))) {
+      const chartData = data.agentPerformance.agentLeaderboard.map(agent => ({
+        name: agent.agentName,
+        calls: agent.totalCalls
+      }));
+      return {
+        text: `Here's the call volume distribution across all agents.`,
+        chartData: {
+          type: 'bar',
+          data: chartData,
+          title: 'Agent Call Volume Distribution'
+        }
+      };
+    }
+
+    // Visualization: Agent performance ratings
+    if ((lowerQuestion.includes('rating') || lowerQuestion.includes('performance')) &&
+        (lowerQuestion.includes('chart') || lowerQuestion.includes('visualize'))) {
+      const ratingMap: any = { 'Excellent': 3, 'Good': 2, 'Average': 1 };
+      const chartData = data.agentPerformance.mostProductiveAgents.map(agent => ({
+        name: agent.agentName,
+        rating: ratingMap[agent.metrics.qualitativeRating] || 0,
+        ratingLabel: agent.metrics.qualitativeRating
+      }));
+      return {
+        text: `Here's the performance rating visualization for top agents.`,
+        chartData: {
+          type: 'bar',
+          data: chartData,
+          title: 'Agent Performance Ratings'
+        }
+      };
+    }
 
     // Top performing agents
     if (lowerQuestion.includes('top') || lowerQuestion.includes('best') || lowerQuestion.includes('productive')) {
       const topAgents = data.agentPerformance.mostProductiveAgents.slice(0, 2);
-      return `Based on the analysis, the top performing agents are:\n\n${topAgents.map((agent, idx) => 
-        `${idx + 1}. **${agent.agentName}** - ${agent.metrics.qualitativeRating} rating\n   • Avg Handle Time: ${agent.metrics.averageIssueHandleTime}\n   • After-Call Work: ${agent.metrics.averageAfterCallWorkTime}\n   • ${agent.justification}`
-      ).join('\n\n')}`;
+      return {
+        text: `Based on the analysis, the top performing agents are:\n\n${topAgents.map((agent, idx) => 
+          `${idx + 1}. **${agent.agentName}** - ${agent.metrics.qualitativeRating} rating\n   • Avg Handle Time: ${agent.metrics.averageIssueHandleTime}\n   • After-Call Work: ${agent.metrics.averageAfterCallWorkTime}\n   • ${agent.justification}`
+        ).join('\n\n')}`
+      };
     }
 
     // Anomalies/issues
     if (lowerQuestion.includes('anomal') || lowerQuestion.includes('issue') || lowerQuestion.includes('problem')) {
       const anomalies = data.synthesis.commonAnomalies;
-      return `I've identified ${anomalies.length} key anomalies:\n\n${anomalies.map((anomaly, idx) => 
-        `${idx + 1}. **${anomaly.anomaly}**\n   Impact: ${anomaly.potentialImpact}`
-      ).join('\n\n')}`;
+      return {
+        text: `I've identified ${anomalies.length} key anomalies:\n\n${anomalies.map((anomaly, idx) => 
+          `${idx + 1}. **${anomaly.anomaly}**\n   Impact: ${anomaly.potentialImpact}`
+        ).join('\n\n')}`
+      };
     }
 
     // Best practices
     if (lowerQuestion.includes('practice') || lowerQuestion.includes('recommendation')) {
       const practices = data.synthesis.bestPractices;
-      return `Here are the best practices observed:\n\n${practices.map((practice, idx) => 
-        `${idx + 1}. **${practice.practice}**\n   Recommendation: ${practice.recommendation}`
-      ).join('\n\n')}`;
+      return {
+        text: `Here are the best practices observed:\n\n${practices.map((practice, idx) => 
+          `${idx + 1}. **${practice.practice}**\n   Recommendation: ${practice.recommendation}`
+        ).join('\n\n')}`
+      };
     }
 
     // Average handling time
-    if (lowerQuestion.includes('handling time') || lowerQuestion.includes('aht')) {
-      return `The overall average handling time is **${data.aggregatedMetrics.averageHandlingTime.overallAverage}**.\n\nThis is calculated across ${data.reportMetadata.totalCallsAnalyzed} calls. The fastest agent handled calls in an average of ${data.agentPerformance.agentLeaderboard[0].averageIssueHandleTime}.`;
+    if (lowerQuestion.includes('average') && lowerQuestion.includes('handling')) {
+      return {
+        text: `The overall average handling time is **${data.aggregatedMetrics.averageHandlingTime.overallAverage}**.\n\nThis is calculated across ${data.reportMetadata.totalCallsAnalyzed} calls. The fastest agent handled calls in an average of ${data.agentPerformance.agentLeaderboard[0].averageIssueHandleTime}.`
+      };
     }
 
     // Applications
     if (lowerQuestion.includes('application') || lowerQuestion.includes('app') || lowerQuestion.includes('tool')) {
       const topApps = data.applicationUsage.mostUsedApplications.slice(0, 3);
-      return `The most used applications are:\n\n${topApps.map((app, idx) => 
-        `${idx + 1}. **${app.applicationName}**\n   • Total Active Time: ${app.totalActiveTime}\n   • Usage Count: ${app.usageCount}`
-      ).join('\n\n')}`;
+      return {
+        text: `The most used applications are:\n\n${topApps.map((app, idx) => 
+          `${idx + 1}. **${app.applicationName}**\n   • Total Active Time: ${app.totalActiveTime}\n   • Usage Count: ${app.usageCount}`
+        ).join('\n\n')}`
+      };
     }
 
     // Idle time
     if (lowerQuestion.includes('idle') || lowerQuestion.includes('wait')) {
       const hotspots = data.synthesis.idleTimeHotspots;
       if (hotspots.length > 0) {
-        return `Key idle time hotspot identified:\n\n**${hotspots[0].task}**\n• Average Idle Time: ${hotspots[0].averageIdleTime}\n• Possible Causes:\n${hotspots[0].possibleCauses.map(cause => `  - ${cause}`).join('\n')}`;
+        return {
+          text: `Key idle time hotspot identified:\n\n**${hotspots[0].task}**\n• Average Idle Time: ${hotspots[0].averageIdleTime}\n• Possible Causes:\n${hotspots[0].possibleCauses.map(cause => `  - ${cause}`).join('\n')}`
+        };
       }
     }
 
     // Strategic insights
     if (lowerQuestion.includes('insight') || lowerQuestion.includes('strategic') || lowerQuestion.includes('summary')) {
       const insights = data.synthesis.strategicInsights;
-      return `Here are the strategic insights:\n\n${insights.map((insight, idx) => 
-        `${idx + 1}. ${insight.description}`
-      ).join('\n\n')}`;
+      return {
+        text: `Here are the strategic insights:\n\n${insights.map((insight, idx) => 
+          `${idx + 1}. ${insight.description}`
+        ).join('\n\n')}`
+      };
     }
 
     // Total calls
     if (lowerQuestion.includes('total') || lowerQuestion.includes('how many')) {
-      return `This report analyzes **${data.reportMetadata.totalCallsAnalyzed} calls** across ${data.agentPerformance.agentLeaderboard.length} agents.\n\nThe report was generated on ${new Date(data.reportMetadata.generationDate).toLocaleDateString()}.`;
+      return {
+        text: `This report analyzes **${data.reportMetadata.totalCallsAnalyzed} calls** across ${data.agentPerformance.agentLeaderboard.length} agents.\n\nThe report was generated on ${new Date(data.reportMetadata.generationDate).toLocaleDateString()}.`
+      };
     }
 
     // Default response
-    return `I can help you with questions about:\n\n• Agent performance and productivity\n• Common anomalies and issues\n• Best practices and recommendations\n• Application usage statistics\n• Handling times and metrics\n• Strategic insights\n\nTry asking me something specific about the report!`;
+    return {
+      text: `I can help you with questions about:\n\n• Agent performance and productivity\n• Common anomalies and issues\n• Best practices and recommendations\n• Application usage statistics\n• Handling times and metrics\n• Strategic insights\n\n💡 Add "(chart)" to any question to see a visualization!\n\nTry asking me something specific about the report!`
+    };
   };
 
   const handleSendMessage = () => {
@@ -114,11 +210,13 @@ export default function Chatbot({ data }: Props) {
 
     // Simulate AI thinking time
     setTimeout(() => {
+      const response = generateResponse(inputValue);
       const aiResponse: Message = {
         id: messages.length + 1,
-        text: generateResponse(inputValue),
+        text: response.text,
         isUser: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        chartData: response.chartData
       };
       setMessages(prev => [...prev, aiResponse]);
       setIsTyping(false);
@@ -254,12 +352,14 @@ export default function Chatbot({ data }: Props) {
                 key={message.id}
                 style={{
                   display: 'flex',
-                  justifyContent: message.isUser ? 'flex-end' : 'flex-start'
+                  flexDirection: 'column',
+                  alignItems: message.isUser ? 'flex-end' : 'flex-start'
                 }}
               >
                 <div
                   style={{
-                    maxWidth: '80%',
+                    maxWidth: message.chartData ? '95%' : '80%',
+                    width: message.chartData ? '100%' : 'auto',
                     padding: '12px 16px',
                     borderRadius: message.isUser ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
                     background: message.isUser
@@ -272,6 +372,76 @@ export default function Chatbot({ data }: Props) {
                   }}
                 >
                   {message.text}
+
+                  {/* Chart Visualization */}
+                  {message.chartData && (
+                    <div style={{
+                      marginTop: '16px',
+                      background: 'white',
+                      borderRadius: '12px',
+                      padding: '16px',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                        <BarChart3 size={18} color="#667eea" />
+                        <h4 style={{ margin: 0, fontSize: '0.95rem', fontWeight: '700', color: '#2c5282' }}>
+                          {message.chartData.title}
+                        </h4>
+                      </div>
+
+                      <ResponsiveContainer width="100%" height={200}>
+                        {message.chartData.type === 'bar' && (
+                          <BarChart data={message.chartData.data} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
+                            <XAxis dataKey="name" stroke="#2c5282" fontSize={10} angle={-15} textAnchor="end" height={60} />
+                            <YAxis stroke="#2c5282" fontSize={10} />
+                            <Tooltip contentStyle={{ fontSize: '0.85rem' }} />
+                            <Legend wrapperStyle={{ fontSize: '0.8rem' }} />
+                            {message.chartData.data[0]?.handleTime !== undefined && (
+                              <>
+                                <Bar dataKey="handleTime" fill="#667eea" radius={[4, 4, 0, 0]} name="Handle Time" />
+                                <Bar dataKey="afterCallTime" fill="#f6ad55" radius={[4, 4, 0, 0]} name="After-Call Time" />
+                              </>
+                            )}
+                            {message.chartData.data[0]?.calls !== undefined && (
+                              <Bar dataKey="calls" fill="#38b2ac" radius={[4, 4, 0, 0]} name="Total Calls" />
+                            )}
+                            {message.chartData.data[0]?.rating !== undefined && (
+                              <Bar dataKey="rating" fill="#ed8936" radius={[4, 4, 0, 0]} name="Rating Score" />
+                            )}
+                          </BarChart>
+                        )}
+
+                        {message.chartData.type === 'line' && (
+                          <LineChart data={message.chartData.data} margin={{ top: 5, right: 10, left: -20, bottom: 5 }}>
+                            <XAxis dataKey="name" stroke="#2c5282" fontSize={10} />
+                            <YAxis stroke="#2c5282" fontSize={10} />
+                            <Tooltip contentStyle={{ fontSize: '0.85rem' }} />
+                            <Legend wrapperStyle={{ fontSize: '0.8rem' }} />
+                            <Line type="monotone" dataKey="value" stroke="#667eea" strokeWidth={2} />
+                          </LineChart>
+                        )}
+
+                        {message.chartData.type === 'pie' && (
+                          <PieChart>
+                            <Pie
+                              data={message.chartData.data}
+                              dataKey="activeTime"
+                              nameKey="name"
+                              cx="50%"
+                              cy="50%"
+                              outerRadius={70}
+                              label={(entry) => entry.name}
+                            >
+                              {message.chartData.data.map((_: any, index: number) => (
+                                <Cell key={`cell-${index}`} fill={['#667eea', '#f6ad55', '#38b2ac', '#ed8936', '#4299e1'][index % 5]} />
+                              ))}
+                            </Pie>
+                            <Tooltip contentStyle={{ fontSize: '0.85rem' }} />
+                          </PieChart>
+                        )}
+                      </ResponsiveContainer>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
